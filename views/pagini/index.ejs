@@ -212,21 +212,6 @@
               </caption>
             </table>
           </div>
-          <div id="grid-galerie">
-            <% for (let imag of locals.imagini){ %>
-            <figure>
-              <img src="/<%-imag.mare%>" alt="adidasi" />
-              <figcaption>ACN</figcaption>
-            </figure>
-            <figure>
-              <picture>
-                <source srcset="/<%-imag.mic%>" media="max-width:700px" />
-                <img src=" /<%-imag.mare%>" alt="text" />
-              </picture>
-              <figcaption><%-imag.descriere%></figcaption>
-            </figure>
-            <% } %>
-          </div>
         </section>
         <section id="others">
           <h2>Sfaturi si Idei</h2>
