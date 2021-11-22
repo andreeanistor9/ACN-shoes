@@ -41,7 +41,9 @@ app.get("/produse", function(req, res){
 app.get(["/","/index"], function(req, res){
     
     console.log(req.ip);
-    res.render("pagini/index", {ip:req.ip, imagini:obImagini.imagini, cale:obImagini.cale_galerie}); //calea relativa la folderul views
+    res.render("pagini/index", {ip:req.ip,// imagini:obImagini.imagini, cale:obImagini.cale_galerie
+    });
+     //calea relativa la folderul views
     
 });
 
