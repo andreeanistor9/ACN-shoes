@@ -69,7 +69,7 @@ app.get("/*", function (req, res) {
   });
 });
 
-var s_port = process.env.PORT || 8081;
+var s_port = process.env.PORT || 8082;
 app.listen(s_port);
 
 console.log("Serverul a pornit");
