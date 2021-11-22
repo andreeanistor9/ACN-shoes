@@ -205,6 +205,59 @@
               </caption>
             </table>
           </div>
+          <div id="galerie2" class="galerie">
+            <div class="grid_2col">
+              <figure>
+                <img
+                  src="/resurse/imagini/galerie/adidasi_dama.png"
+                  alt="cladire colorata"
+                />
+                <figcaption>Cladire colorata</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="/resurse/imagini/galerie/adidasi_sport.png"
+                  alt="lampioane"
+                />
+                <figcaption>Lampioane</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="/resurse/imagini/galerie/adidasi_strada.png"
+                  alt="gradinita"
+                />
+                <figcaption>Gradinita</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="/resurse/imagini/galerie/adidasi_tenis.png"
+                  alt="peisaj"
+                />
+                <figcaption>Peisaj</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="/resurse/imagini/galerie/adidasi_alergat.png"
+                  alt="piateta"
+                />
+                <figcaption>Piateta</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="/resurse/imagini/galerie/ghete_barbati.png"
+                  alt="pietre"
+                />
+                <figcaption>Pietre</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="/resurse/imagini/galerie/ghete_barbati.png"
+                  alt="pietre2"
+                />
+                <figcaption>Pietre</figcaption>
+              </figure>
+            </div>
+          </div>
         </section>
         <section id="others">
           <h2>Sfaturi si Idei</h2>
@@ -265,6 +318,19 @@
           <a href="feedback.html">aici</a>
         </strong> -->
       </section>
+
+      <h2>Galerie</h2>
+      <div id="grid-galerie">
+        <% for (let imag of locals.imagini) { %>
+        <figure>
+          <picture>
+            <source srcset="/<%- imag.mic%>" media="(max-width:700px)" />
+            <img src="/<%- locals.cale + imag.fisier %>" alt="text" />
+          </picture>
+          <figcaption><%-imag.descriere%></figcaption>
+        </figure>
+        <% } %>
+      </div>
     </main>
     <%- include("../fragmente/footer.ejs") %>
   </body>

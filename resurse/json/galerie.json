@@ -1,20 +1,20 @@
 {
-	"cale_galerie":"resurse/imagini/galerie",
+	"cale_galerie":"resurse/imagini/galerie/",
 	"imagini": [
 		{
-			"fisier":"adidasi-alergat.jpg",
+			"fisier":"adidasi-alergat.png",
 			"descriere":"ACN Running 2xZ"
 		},
 		{
-			"fisier":"adidasi-sport.jpg",
+			"fisier":"adidasi-sport.png",
 			"descriere":"ACN Fitness 250"
 		},
 		{
-			"fisier":"adidasi-tenis.jpg",
+			"fisier":"adidasi-tenis.png",
 			"descriere":"ACN Tennis 800"
 		},
 		{
-			"fisier":"adidasi-barbati.jpg",
+			"fisier":"adidasi-barbati.png",
 			"descriere":"ACN Air 380"
 		},
 		{
@@ -22,15 +22,15 @@
 			"descriere":"ACN JDx280"
 		},
 		{
-			"fisier":"adidasi-dama.jpg",
+			"fisier":"adidasi-dama.png",
 			"descriere":"ACN CxT9"
 		},
 		{
-			"fisier":"tenisi-baietei.jpg",
+			"fisier":"tenisi-baietei.png",
 			"descriere":"ACN B345"
 		},
         {
-			"fisier":"tenisi-fetite.jpg",
+			"fisier":"tenisi-fetite.png",
 			"descriere":"ACN F245"
 		},
         {
@@ -38,15 +38,15 @@
 			"descriere":"ACN Canvas 500"
 		},
         {
-			"fisier":"ghete-barbati.jpg",
+			"fisier":"ghete-barbati.png",
 			"descriere":"ACN BootM X"
 		},
         {
-			"fisier":"ghete-dama.jpg",
+			"fisier":"ghete-dama.png",
 			"descriere":"ACN BootF Y"
 		},
         {
-			"fisier":"ghete-copii.jpg",
+			"fisier":"ghete-copii.png",
 			"descriere":"ACN BootK X"
 		}
 	]
