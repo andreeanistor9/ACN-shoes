@@ -1,0 +1,21 @@
+ sleepy-plateau-70184
+https://sleepy-plateau-70184.herokuapp.com/
+https://git.heroku.com/sleepy-plateau-70184.git
+
+
+
+<!-- <div id="grid-galerie">
+            <% for (let imag of locals.imagini){ %>
+            <figure>
+              <img src="/<%-imag.mare%>" alt="adidasi" />
+              <figcaption>ACN</figcaption>
+            </figure>
+            <figure>
+              <picture>
+                <source srcset="/<%-imag.mic%>" media="max-width:700px" />
+                <img src=" /<%-imag.mare%>" alt="text" />
+              </picture>
+              <figcaption><%-imag.descriere%></figcaption>
+            </figure>
+            <% } %>
+          </div> -->
