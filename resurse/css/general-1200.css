@@ -1,0 +1,28 @@
+html {
+  font-size: 14px;
+}
+
+body {
+  --body-padding: 1.5rem;
+  margin: 0;
+}
+nav ul.meniu > li > a > span + span {
+  font-size: 0em;
+}
+nav ul.meniu > li {
+  width: 100px;
+}
+#grid-pagina {
+  display: grid;
+  grid-template-areas:
+    "welcome             welcome"
+    "online_users        user_stats"
+    "events              site_server"
+    "events              tabel"
+    "news                tabel"
+    "others              others";
+  padding: 4%;
+
+  /*spatiu intre celulele de grid*/
+  grid-gap: 2rem;
+}

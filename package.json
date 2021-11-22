@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "font-awesome-animation": "^1.1.1",
+    "pg": "^8.7.1",
+    "sass": "^1.43.4",
+    "sharp": "^0.29.2"
+  },
+  "name": "acn",
+  "version": "1.0.0",
+  "description": "magazin de incaltaminte",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "ghete",
+    "incaltaminte",
+    "pantofi",
+    "sport",
+    "slapi",
+    "sandale",
+    "marime",
+    "model",
+    "ACN",
+    "shoes"
+  ],
+  "author": "Andreea Nistor",
+  "license": "ISC",
+  "engines": {"node": "14.x"}
+}

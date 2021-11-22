@@ -1,0 +1,293 @@
+<!-- ETAPA 1 -->
+<!-- subetapa 1 -->
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <!-- subetapa 2 -->
+
+    <meta
+      name="keywords"
+      content=" ghete, incaltaminte, pantofi, sport, slapi, sandale, marime, model, ACN shoes"
+    />
+    <meta
+      name="description"
+      content="Din 2021 ACN SHOES promite sa ofere incaltaminte calitativa. 
+      La noi gasesti pantofi sport, ghete, slapi, sandale pentru toate categoriile de varsta si pentru toate gusturile "
+    />
+
+    <title>ACN Shoes</title>
+    <%- include("../fragmente/head.ejs") %>
+  </head>
+  <!-- subetapa 5 -->
+  <body>
+    <!-- subetapa 6 -->
+    <%- include("../fragmente/header.ejs") %>
+    <!--subetapa 7 -->
+    <main>
+      <div id="grid-pagina">
+        <section id="welcome">
+          <div class="row">
+            <div class="column1">
+              <img
+                src="/resurse/imagini/gif1.gif"
+                alt="shoesonstreet1"
+                style="width: 100%; height: auto"
+              />
+            </div>
+            <div class="column">
+              <img
+                src="/resurse/imagini/zona1-img.jpg"
+                alt="kids-shoes"
+                style="width: 100%; height: auto"
+              />
+            </div>
+            <div class="column3">
+              <img
+                src="/resurse/imagini/gif2.gif"
+                alt="shoesonstreet"
+                style="width: 100%; height: auto"
+              />
+            </div>
+          </div>
+          <h2 class="scris" style="text-align: center">BINE ATI VENIT!</h2>
+          <p class="scris" style="text-align: center">
+            Este sezonul reducerilor!
+            <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+            <lord-icon
+              src="https://cdn.lordicon.com/qrbokoyz.json"
+              trigger="loop"
+              colors="primary:#121331,secondary:#08a88a"
+              style="width: 50px; height: 50px"
+            >
+            </lord-icon>
+            Te asteptam cu numeroase oferte irrrezistibile!
+            <span class="fab fa-shopify" style="font-size: 25px"></span>
+          </p>
+
+          <div class="row">
+            <div class="column">
+              <img
+                src="/resurse/imagini/zona1.jpg"
+                alt="passion"
+                style="width: 100%; height: auto"
+              />
+            </div>
+            <div class="column">
+              <img
+                src="/resurse/imagini/welcome.jpg"
+                alt="sales"
+                style="width: 100%; height: auto"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="online_users">
+          <h2>Utilizatori Online</h2>
+          <p>
+            The standard Lorem Ipsum passage, used since the 1500s "Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+          </p>
+        </section>
+
+        <section id="user_stats">
+          <h2>Date despre utilizator</h2>
+          <p>Ip-ul de local host este <%- ip %></p>
+        </section>
+        <section id="site_server">
+          <h2>Site Server Data</h2>
+          <p>
+            The standard Lorem Ipsum passage, used since the 1500s "Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+          </p>
+        </section>
+        <section id="events">
+          <h2>Evenimente</h2>
+          <p>
+            The standard Lorem Ipsum passage, used since the 1500s "Lorem ipsum
+            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt
+          </p>
+        </section>
+        <section id="news">
+          <h2>Anunturi</h2>
+          <p>
+            <strong>
+              Fii cu ochii pe site-ul nostru pentru diferite oferte si reduceri!
+            </strong>
+          </p>
+          <hr />
+          <p>
+            <strong>
+              Doar maine avem toate produsele la jumatate de pret!
+            </strong>
+          </p>
+          <video
+            controls
+            preload="none"
+            style="width: 80%; height: auto"
+            poster="/resurse/imagini/poza_poster.jpg"
+          >
+            <source src="/resurse/video/video1.mp4" type="video/mp4" />
+            <source src="/resurse/video/video1.ogv" type="video/ogv" />
+
+            <track
+              default
+              src="/resurse/video/tracks/shoesro.vtt"
+              kind="captions"
+              srclang="ro"
+              label="romană"
+            />
+
+            <track
+              src="/resurse/video/tracks/shoesen.vtt"
+              kind="captions"
+              srclang="en"
+              label="engleză"
+            />
+          </video>
+        </section>
+        <section id="tabel">
+          <h2>Tabele</h2>
+          <div class="wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Produs</th>
+                  <th>Cantitate vanduta</th>
+                  <th>Marimea cea mai vanduta</th>
+                  <th>Cea mai vanduta culoare</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ACN boots F567</td>
+                  <td>100 bucati</td>
+                  <td>38</td>
+                  <td rowspan="2">negru</td>
+                </tr>
+                <tr>
+                  <td>ACN Kboost 564</td>
+                  <td>100 bucati</td>
+                  <td>37</td>
+                </tr>
+                <tr>
+                  <td>ACN Air 79</td>
+                  <td>80 bucati</td>
+                  <td>43</td>
+                  <td>verde</td>
+                </tr>
+                <tr>
+                  <td>ACN FlipFlop X</td>
+                  <td>67 bucati</td>
+                  <td>32</td>
+                  <td>galben</td>
+                </tr>
+                <tr id="last">
+                  <td>ACN skate XZ-654</td>
+                  <td>50</td>
+                  <td>36</td>
+                  <td>alb</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">Anul</td>
+                  <td colspan="2">2021</td>
+                </tr>
+              </tfoot>
+              <caption>
+                Cele mai vandute produse
+              </caption>
+            </table>
+          </div>
+          <div id="grid-galerie">
+            <% for (let imag of locals.imagini){ %>
+            <figure>
+              <img src="/<%-imag.mare%>" alt="adidasi" />
+              <figcaption>ACN</figcaption>
+            </figure>
+            <figure>
+              <picture>
+                <source srcset="/<%-imag.mic%>" media="max-width:700px" />
+                <img src=" /<%-imag.mare%>" alt="text" />
+              </picture>
+              <figcaption><%-imag.descriere%></figcaption>
+            </figure>
+            <% } %>
+          </div>
+        </section>
+        <section id="others">
+          <h2>Sfaturi si Idei</h2>
+          <p>
+            Te intrebi cum sa iti alegi <b>marimea</b> potrivita la
+            <b>incaltaminte</b>? Mai jos gasesti doua videoclipuri sugestive.
+          </p>
+
+          <div class="video-iframe">
+            <iframe
+              name="ifr-video"
+              width="600"
+              height="400"
+              src="https://www.youtube.com/embed/vcQgJb9-oZ8"
+            ></iframe>
+          </div>
+          <div class="taburi-iframe">
+            <a
+              href="https://www.youtube.com/embed/vcQgJb9-oZ8"
+              target="ifr-video"
+              >Video 1</a
+            >
+            <a
+              href="https://www.youtube.com/embed/g8lqKlkD_90"
+              target="ifr-video"
+              >Video 2</a
+            >
+            <br />
+          </div>
+        </section>
+      </div>
+
+      <section id="contact">
+        <!-- <h3>Date de contact</h3>
+
+        <p>Telefon: 0771779888</p>
+        <p>Email: ACNshoes@gmail.com</p>
+        <p>Suport clienti: Luni-Vineri: 9:00-19:00</p> -->
+      </section>
+      <!-- subetapa 12 -->
+      <section id="detalii">
+        <!-- <h3>DETALII</h3>
+        <h4>INTREBARI FRECVENTE:</h4>
+        <p>
+          1. In cat timp se livreaza comenzile? <br />
+          Comenzile se livreaza in general in 3-5 zile lucratoare. Pot aparea
+          intarzieri in preajma sarbatorilor sau a situatiilor speciale. <br />
+          2. Cum se poate efectua plata? <br />
+          Plata se poate efectua atat online din pagina comenzii, cat si cash la
+          livrare. <br />
+          3. In cat timp poate fi disponibil din nou un produs care nu este pe
+          stoc in acest moment? <br />
+          De obicei, produsele indisponibile momentan vor reveni in magazin in
+          2-3 saptamani sau deloc daca sunt editie limitata. <br />
+        </p>
+        <strong>
+          Parerea ta conteaza! Lasa-ne feedback-ul tau
+          <a href="feedback.html">aici</a>
+        </strong> -->
+      </section>
+    </main>
+    <%- include("../fragmente/footer.ejs") %>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+html {
+  font-size: 11px;
+}
+
+body {
+  --body-padding: 0px;
+}
+
+#grid-pagina {
+  display: block;
+}
+
+#grid-pagina section {
+  font-size: 1em;
+}
+
+section {
+  margin-top: 1rem;
+}
+.scris {
+  font-size: 18px;
+}
+p.scris {
+  font-size: 12px;
+}
+.taburi-iframe {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 310px;
+  padding: 0;
+}
+.taburi-iframe a {
+  width: auto;
+  height: auto;
+  font-size: 12px;
+}
+.video-iframe > iframe {
+  width: auto;
+  height: auto;
+}
+div.wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+}

@@ -1,0 +1,61 @@
+#watermark {
+  display: block;
+  position: fixed; /*apare pe toate paginile*/
+  bottom: 0;
+  color: rgba(0, 0, 0);
+  right: 0;
+  width: 60%;
+  height: 10%;
+  opacity: 0.3;
+  align-items: center;
+}
+#banner {
+  position: absolute;
+  color: black;
+  text-align: center;
+  left: 10px;
+  top: 0;
+  width: 50vw;
+  border: 1px double black;
+}
+
+img,
+video,
+iframe,
+#link-top,
+.video-iframe,
+.taburi-iframe {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+  padding: 15px;
+}
+
+nav ul.meniu li {
+  list-style-type: circle;
+  padding: 10px;
+}
+nav ul.meniu {
+  padding: 10px;
+  page-break-after: always;
+}
+nav ul.meniu > li {
+  float: none;
+}
+a {
+  text-decoration: none;
+  color: (--text-color);
+}
+footer {
+  page-break-before: always;
+}
+@page: left {
+  margin-left: 2cm;
+  margin-right: 1cm;
+}
+@page: right {
+  margin-right: 2cm;
+  margin-left: 1cm;
+}

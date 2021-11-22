@@ -1,0 +1,53 @@
+{
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini": [
+		{
+			"fisier":"adidasi-alergat.jpg",
+			"descriere":"ACN Running 2xZ"
+		},
+		{
+			"fisier":"adidasi-sport.jpg",
+			"descriere":"ACN Fitness 250"
+		},
+		{
+			"fisier":"adidasi-tenis.jpg",
+			"descriere":"ACN Tennis 800"
+		},
+		{
+			"fisier":"adidasi-barbati.jpg",
+			"descriere":"ACN Air 380"
+		},
+		{
+			"fisier":"adidasi-strada.png",
+			"descriere":"ACN JDx280"
+		},
+		{
+			"fisier":"adidasi-dama.jpg",
+			"descriere":"ACN CxT9"
+		},
+		{
+			"fisier":"tenisi-baietei.jpg",
+			"descriere":"ACN B345"
+		},
+        {
+			"fisier":"tenisi-fetite.jpg",
+			"descriere":"ACN F245"
+		},
+        {
+			"fisier":"tenisi-unisex.png",
+			"descriere":"ACN Canvas 500"
+		},
+        {
+			"fisier":"ghete-barbati.jpg",
+			"descriere":"ACN BootM X"
+		},
+        {
+			"fisier":"ghete-dama.jpg",
+			"descriere":"ACN BootF Y"
+		},
+        {
+			"fisier":"ghete-copii.jpg",
+			"descriere":"ACN BootK X"
+		}
+	]
+}
