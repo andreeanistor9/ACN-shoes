@@ -1,53 +1,88 @@
 {
-	"cale_galerie":"resurse/imagini/galerie/",
+	"cale_galerie":"resurse/imagini/galerie",
 	"imagini": [
 		{
-			"fisier":"adidasi-alergat.png",
-			"descriere":"ACN Running 2xZ"
+			"fisier":"adidasi_alergat.jpg",
+			"titlu":"adidas_alergat",
+			"descriere":"ACN Running 2xZ",
+			"anotimp":"toamna"
+			
 		},
 		{
-			"fisier":"adidasi-sport.png",
-			"descriere":"ACN Fitness 250"
+			"fisier":"adidasi_sport.jpg",
+			"titlu":"adidas_sport",
+			"descriere":"ACN Fitness 250",
+			"anotimp":"toamna"
+			
 		},
 		{
-			"fisier":"adidasi-tenis.png",
-			"descriere":"ACN Tennis 800"
+			"fisier":"adidasi_tennis.jpg",
+			"titlu":"adidas_tennis",
+			"descriere":"ACN Tennis 800",
+			"anotimp":"toamna"
+			
 		},
 		{
-			"fisier":"adidasi-barbati.png",
-			"descriere":"ACN Air 380"
+			"fisier":"adidasi_barbati.jpg",
+			"titlu":"adidas_barbati",
+			"descriere":"ACN Air 380",
+			"anotimp":"toamna"
+		},
+		
+		{
+			"fisier":"adidasi_strada.jpg",
+			"titlu":"adidas_strada",
+			"descriere":"ACN JDx280",
+			"anotimp":"toamna"
 		},
 		{
-			"fisier":"adidasi-strada.png",
-			"descriere":"ACN JDx280"
+			"fisier":"adidasi_dama.jpg",
+			"titlu":"adidas_dama",
+			"descriere":"ACN CxT9",
+			"anotimp":"toamna"
 		},
 		{
-			"fisier":"adidasi-dama.png",
-			"descriere":"ACN CxT9"
-		},
-		{
-			"fisier":"tenisi-baietei.png",
-			"descriere":"ACN B345"
+			"fisier":"tenisi_baietei.jpg",
+			"titlu":"tenisi_baietei",
+			"descriere":"ACN B345",
+			"anotimp":"toamna"
 		},
         {
-			"fisier":"tenisi-fetite.png",
-			"descriere":"ACN F245"
+			"fisier":"tenisi_fetite.jpg",
+			"titlu":"tenisi_fetite",
+			"descriere":"ACN F245",
+			"anotimp":"toamna"
 		},
         {
-			"fisier":"tenisi-unisex.png",
-			"descriere":"ACN Canvas 500"
+			"fisier":"tenisi_unisex.jpg",
+			"titlu":"tenisi_unisex",
+			"descriere":"ACN Canvas 500",
+			"anotimp":"toamna"
+		},
+		
+        {
+			"fisier":"ghete_barbati.jpg",
+			"titlu":"ghete_barbati",
+			"descriere":"ACN BootM X",
+			"anotimp":"toamna"
 		},
         {
-			"fisier":"ghete-barbati.png",
-			"descriere":"ACN BootM X"
+			"fisier":"ghete_dama.jpg",
+			"titlu":"ghete_dama",
+			"descriere":"ACN BootF Y",
+			"anotimp":"toamna"
 		},
         {
-			"fisier":"ghete-dama.png",
-			"descriere":"ACN BootF Y"
+			"fisier":"ghete_copii.jpg",
+			"titlu":"ghete_copii",
+			"descriere":"ACN BootK X",
+			"anotimp":"toamna"
 		},
-        {
-			"fisier":"ghete-copii.png",
-			"descriere":"ACN BootK X"
+		{
+			"fisier":"ghete_iarna.jpg",
+			"titlu":"ghete_iarna",
+			"descriere":"ACN BootK W",
+			"anotimp":"toamna"
 		}
 	]
 }

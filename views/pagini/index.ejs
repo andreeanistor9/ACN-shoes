@@ -205,7 +205,7 @@
               </caption>
             </table>
           </div>
-          <div id="galerie2" class="galerie">
+          <!-- <div id="galerie2" class="galerie">
             <div class="grid_2col">
               <figure>
                 <img
@@ -256,8 +256,8 @@
                 />
                 <figcaption>Pietre</figcaption>
               </figure>
-            </div>
-          </div>
+            </div> 
+          </div>-->
         </section>
         <section id="others">
           <h2>Sfaturi si Idei</h2>
@@ -319,18 +319,24 @@
         </strong> -->
       </section>
 
-      <h2>Galerie</h2>
-      <div id="grid-galerie">
-        <% for (let imag of locals.imagini) { %>
-        <figure>
-          <picture>
-            <source srcset="/<%- imag.mic%>" media="(max-width:700px)" />
-            <img src="/<%- locals.cale + imag.fisier %>" alt="text" />
-          </picture>
-          <figcaption><%-imag.descriere%></figcaption>
-        </figure>
-        <% } %>
-      </div>
+      <section id="galerie-statica">
+        <h2>Galerie</h2>
+        <div id="grid-galerie">
+          <% for (let imag of locals.imagini){ %> <% if (anotimp ==
+          imag.anotimp) { %>
+          <figure>
+            <picture>
+              <!-- il ia pe primul care se potriveste cu query-ul din media-->
+              <source srcset="/<%- imag.mic%>" media="(max-width:600px)" />
+              <source srcset="/<%- imag.mediu%>" media="(max-width:1200px)" />
+              <img src="/<%- imag.mare %>" alt="<%- imag.titlu %>""
+              class="imagine" />
+            </picture>
+            <figcaption><%-imag.descriere%></figcaption>
+          </figure>
+          <% } %> <% } %>
+        </div>
+      </section>
     </main>
     <%- include("../fragmente/footer.ejs") %>
   </body>
