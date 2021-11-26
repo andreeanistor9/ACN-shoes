@@ -66,6 +66,7 @@ function creeazaImagini(){
 
 }
 creeazaImagini();
+
 function get_anotimp(){
   today = new Date();
   luna = today.getMonth()+1;
@@ -81,15 +82,47 @@ function get_anotimp(){
 
   console.log(anotimp)
 }
+
 get_anotimp();
+
+app.get("*/galerie-animata.css",function(req, res){
+  /*Atentie modul de rezolvare din acest app.get() este strict pentru a demonstra niste tehnici
+  si nu pentru ca ar fi cel mai eficient mod de rezolvare*/
+  res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
+  let sirScss=fs.readFileSync("./resurse/scss/galerie_animata.scss").toString("utf-8");//citesc scss-ul cs string
+  culori=["navy","black","purple","grey"]
+  let culoareAleatoare =culori[Math.floor(Math.random()*culori.length)];//iau o culoare aleatoare pentru border
+//console.log(culoareAleatoare);
+  //let nrImag= 10+Math.floor(Math.random()*5)*2;  //Math.floor(Math.random()*10) 
+  let rezScss=ejs.render(sirScss,{culoare:culoareAleatoare});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
+  //console.log(rezScss);
+  fs.writeFileSync("./temp/galerie-animata.scss",rezScss);//scriu scss-ul intr-un fisier temporar
+
+let cale_css=path.join(__dirname,"temp","galerie-animata.css");//__dirname+"/temp/galerie-animata.css"
+let cale_scss=path.join(__dirname,"temp","galerie-animata.scss");
+sass.render({file: cale_scss, sourceMap:true}, function(err, rezCompilare) {
+  console.log(rezCompilare);
+  if (err) {
+          console.log(`eroare: ${err.message}`);
+          //to do: css default
+          res.end();//termin transmisiunea in caz de eroare
+          return;
+      }
+  fs.writeFileSync(cale_css, rezCompilare.css, function(err){
+    if(err){console.log(err);}
+  });
+  res.sendFile(cale_css);
+});
+//varianta cu pachetul sass
+
+});
+
+app.get("*/galerie-animata.css.map",function(req, res){
+  res.sendFile(path.join(__dirname,"temp/galerie-animata.css.map"));
+});
+
 app.get(["/", "/index", "/home"], function (req, res) {
   console.log(req.ip);
-
-  // //-----------galerie
-  // var buf = fs.readFileSync(__dirname + "/resurse/json/galerie.json").toString("utf-8");
-  // obImagini = JSON.parse(buf);
-  // console.log(obImagini);
-
   res.render("pagini/index", {
     ip: req.ip,
     imagini: obImagini.imagini,
@@ -119,7 +152,7 @@ app.get("/*", function (req, res) {
   });
 });
 
-var s_port = process.env.PORT || 8081;
+var s_port = process.env.PORT || 8082;
 app.listen(s_port);
 
 console.log("Serverul a pornit");

@@ -1,6 +1,6 @@
 #galerie-statica {
-  padding-left: var(--padding-intern);
-  padding-right: var(--padding-intern);
+  padding-left: 4%;
+  padding-right: 4%;
 }
 
 #grid-galerie {
@@ -11,10 +11,12 @@
 }
 #grid-galerie img {
   width: 100%;
-  transition: all 1/8s linear;
+  height: 100%;
+  transition: all 0.125s linear;
 }
 #grid-galerie img:hover {
-  transform: scale(0.4);
+  transform: scale(1.4, 1.4);
+  transform-origin: top center;
   opacity: 0.5;
   border-radius: 15px;
 }

@@ -15,6 +15,7 @@ body {
   --buton-iframe: #e8e5fa;
   --arrow-color: #5a5a5c;
   --text-color: #0d0007;
+  --padding-intern: 4%;
 }
 body {
   min-width: 330px;

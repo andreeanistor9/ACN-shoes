@@ -1,5 +1,1 @@
-@for $i from 1 through 13 {
-  #grid-galerie > figure:nth-child(6 * $i - 1) {
-    grid-area: $i + 1 / $i/$i + 2 / $i;
-  }
-}
+
