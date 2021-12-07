@@ -57,10 +57,7 @@ function creeazaImagini(){
       if (!fs.existsSync(imag.mediu))
         sharp(__dirname + "/" + imag.mare)
           .resize(dim_mediu)
-          .toFile(__dirname + "/" + imag.mediu);
-
-
-          
+          .toFile(__dirname + "/" + imag.mediu);     
       
   }
 
@@ -104,8 +101,8 @@ sass.render({file: cale_scss, sourceMap:true}, function(err, rezCompilare) {
   console.log(rezCompilare);
   if (err) {
           console.log(`eroare: ${err.message}`);
-          //to do: css default
-          res.end();//termin transmisiunea in caz de eroare
+         
+          res.end();
           return;
       }
   fs.writeFileSync(cale_css, rezCompilare.css, function(err){
@@ -113,8 +110,6 @@ sass.render({file: cale_scss, sourceMap:true}, function(err, rezCompilare) {
   });
   res.sendFile(cale_css);
 });
-//varianta cu pachetul sass
-
 });
 
 app.get("*/galerie-animata.css.map",function(req, res){

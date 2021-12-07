@@ -293,17 +293,19 @@
       <section id="sectiune-galerie-animata">
         <h2>Galerie</h2>
         <div id="galerie-animata" class="galerie-a">
-          <% for (let imag of locals.imagini){ %>
+          <div class="grid2col">
+            <% for (let imag of locals.imagini){ %>
 
-          <figure>
-            <picture>
-              <!-- il ia pe primul care se potriveste cu query-ul din media-->
-              <source srcset="/<%-imag.mic%>" media="(max-width:700px)" />
-              <img src="/<%-imag.mare%>" alt="text" />
-            </picture>
-            <figcaption><%-imag.descriere%></figcaption>
-          </figure>
-          <% } %>
+            <figure>
+              <picture>
+                <!-- il ia pe primul care se potriveste cu query-ul din media-->
+                <source srcset="/<%-imag.mic%>" media="(max-width:700px)" />
+                <img src="/<%-imag.mare%>" alt="text" />
+              </picture>
+              <figcaption><%-imag.descriere%></figcaption>
+            </figure>
+            <% } %>
+          </div>
         </div>
       </section>
     </main>
