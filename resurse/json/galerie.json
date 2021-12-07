@@ -5,84 +5,84 @@
 			"fisier":"adidasi_alergat.jpg",
 			"titlu":"adidas_alergat",
 			"descriere":"ACN Running 2xZ",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 			
 		},
 		{
 			"fisier":"adidasi_sport.jpg",
 			"titlu":"adidas_sport",
 			"descriere":"ACN Fitness 250",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 			
 		},
 		{
 			"fisier":"adidasi_tennis.jpg",
 			"titlu":"adidas_tennis",
 			"descriere":"ACN Tennis 800",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 			
 		},
 		{
 			"fisier":"adidasi_barbati.jpg",
 			"titlu":"adidas_barbati",
 			"descriere":"ACN Air 380",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
 		
 		{
 			"fisier":"adidasi_strada.jpg",
 			"titlu":"adidas_strada",
 			"descriere":"ACN JDx280",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
 		{
 			"fisier":"adidasi_dama.jpg",
 			"titlu":"adidas_dama",
 			"descriere":"ACN CxT9",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
 		{
 			"fisier":"tenisi_baietei.jpg",
 			"titlu":"tenisi_baietei",
 			"descriere":"ACN B345",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
         {
 			"fisier":"tenisi_fetite.jpg",
 			"titlu":"tenisi_fetite",
 			"descriere":"ACN F245",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
         {
 			"fisier":"tenisi_unisex.jpg",
 			"titlu":"tenisi_unisex",
 			"descriere":"ACN Canvas 500",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
 		
         {
 			"fisier":"ghete_barbati.jpg",
 			"titlu":"ghete_barbati",
 			"descriere":"ACN BootM X",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
         {
 			"fisier":"ghete_dama.jpg",
 			"titlu":"ghete_dama",
 			"descriere":"ACN BootF Y",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
         {
 			"fisier":"ghete_copii.jpg",
 			"titlu":"ghete_copii",
 			"descriere":"ACN BootK X",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		},
 		{
 			"fisier":"ghete_iarna.jpg",
 			"titlu":"ghete_iarna",
 			"descriere":"ACN BootK W",
-			"anotimp":"toamna"
+			"anotimp":"iarna"
 		}
 	]
 }

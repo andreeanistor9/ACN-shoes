@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>repl.it</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 3rem;
+      }
+      .galerie {
+        width: 400px;
+        height: 300px;
+        border: 1px solid black;
+        position: relative;
+
+        border: 1px solid black;
+        margin-bottom: 5rem;
+      }
+      .galerie figcaption {
+        position: absolute;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.7);
+        width: 100%;
+        text-align: center;
+      }
+      .galerie figure {
+        position: relative;
+        width: 400px;
+        height: 300px;
+      }
+
+      #derulant {
+        position: absolute;
+        animation-name: gal1;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 20s;
+      }
+
+      @keyframes gal1 {
+        0% {
+          top: 0px;
+        }
+        100% {
+          top: -600%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="galerie1" class="galerie">
+      <div id="derulant">
+        <figure>
+          <img
+            src="resurse/imagini/galerie/adidasi_alergat.jpg"
+            alt="cladire colorata"
+          />
+          <figcaption>Cladire colorata</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="resurse/imagini/galerie/adidasi_alergat.jpg"
+            alt="lampioane"
+          />
+          <figcaption>Lampioane</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="resurse/imagini/galerie/adidasi_alergat.jpg"
+            alt="gradinita"
+          />
+          <figcaption>Gradinita</figcaption>
+        </figure>
+        <figure>
+          <img src="resurse/imagini/galerie/adidasi_alergat.jpg" alt="peisaj" />
+          <figcaption>Peisaj</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="resurse/imagini/galerie/adidasi_alergat.jpg"
+            alt="piateta"
+          />
+          <figcaption>Piateta</figcaption>
+        </figure>
+        <figure>
+          <img src="resurse/imagini/galerie/adidasi_alergat.jpg" alt="pietre" />
+          <figcaption>Pietre</figcaption>
+        </figure>
+        <figure>
+          <img src="resurse/imagini/galerie/adidasi_alergat.jpg" alt="plante" />
+          <figcaption>Plante</figcaption>
+        </figure>
+      </div>
+    </div>
+  </body>
+</html>
