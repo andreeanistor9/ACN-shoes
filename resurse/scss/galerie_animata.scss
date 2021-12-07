@@ -5,10 +5,10 @@ $lista_transformari: (
   (scale(1) rotateZ(180deg))
 );
 $indice: list.length($lista_transformari);
-
+$indice: math.random(list.length($lista_transformari));
 @use "../resurse/scss/galerie_animata_frag" with
   (
     $transformare_i: list.nth(list.nth($lista_transformari, $indice), 1),
     $transformare_f: list.nth(list.nth($lista_transformari, $indice), 2),
-    // $setare-server: <%- locals.culoare %>
+    $setare-server: <%- nr_imagini %>
   );

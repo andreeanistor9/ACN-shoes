@@ -1,8 +1,7 @@
 $transformare_i: skewX(0deg) !default;
 $transformare_f: skewX(90deg) !default;
-$setare-server: black !default;
-$nrimag: 7 !default;
-
+$setare-server: 7 !default;
+$animation-delay: 0s;
 #sectiune-galerie-animata {
   padding-left: 4%;
   padding-right: 4%;
@@ -10,7 +9,7 @@ $nrimag: 7 !default;
 .galerie-a {
   width: 400px;
   height: 300px;
-  border: 4px inset $setare-server;
+  border: 4px inset black;
   position: relative;
   overflow: hidden;
   margin-bottom: 5rem;
@@ -28,6 +27,12 @@ $nrimag: 7 !default;
   height: 300px;
   margin: 0;
 }
+@for $i from ($setare-server) to 0 {
+  #galerie-animata figure:nth-of-type(#{$i}) {
+    animation-delay: $animation-delay;
+  }
+  $animation-delay: $animation-delay + 2s;
+}
 
 #galerie-animata figure {
   position: absolute;
@@ -36,70 +41,86 @@ $nrimag: 7 !default;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
-  animation-duration: 21s;
+  animation-duration: $animation-delay;
   transform-origin: center center;
 }
 #galerie-animata figure:hover {
   animation-play-state: paused;
 }
 
-#galerie-animata figure:nth-of-type(7) {
-  /* cea mai de deasupra*/
-  animation-delay: 0s;
-}
-#galerie-animata figure:nth-of-type(6) {
-  animation-delay: 3s;
-}
-#galerie-animata figure:nth-of-type(5) {
-  animation-delay: 6s;
-}
-#galerie-animata figure:nth-of-type(4) {
-  animation-delay: 9s;
-}
-#galerie-animata figure:nth-of-type(3) {
-  animation-delay: 12s;
-}
-#galerie-animata figure:nth-of-type(2) {
-  animation-delay: 15s;
-}
-#galerie-animata figure:nth-of-type(1) {
-  animation-delay: 18s;
-}
+@if ($setare-server<=7) {
+  @keyframes gal_exemplu {
+    0% {
+      z-index: 10;
+      opacity: 1;
+      clip-path: circle(70%);
+    } /*perioada 0-5% in care se afiseaza fara efect */
+    6% {
+      clip-path: circle(30%);
+      transform: $transformare_i;
+    } /*transformare inceput disparitie*/
+    10% {
+      opacity: 0.5;
+    } /* de  aici doresc sa descresc si opacitatea;*/
+    12% {
+      z-index: 10;
+      opacity: 0;
+      transform: $transformare_f;
+    }
+    12.01% {
+      z-index: -10;
+      transform: $transformare_i;
+    } /* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
 
-@keyframes gal_exemplu {
-  0% {
-    z-index: 10;
-    opacity: 1;
-    clip-path: circle(70%);
-  } /*perioada 0-5% in care se afiseaza fara efect */
-  7.142857% {
-    clip-path: circle(30%);
-    transform: $transformare_i;
-  } /*transformare inceput disparitie*/
-  12% {
-    opacity: 0.5;
-  } /* de  aici doresc sa descresc si opacitatea;*/
-  14.285714% {
-    z-index: 10;
-    opacity: 0;
-    transform: $transformare_f;
+    88% {
+      opacity: 0;
+      transform: $transformare_i;
+      z-index: -10;
+    }
+    88.01% {
+      z-index: 0;
+    } /*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
+    100% {
+      opacity: 1;
+      z-index: 0;
+    }
   }
-  14.285715% {
-    z-index: -10;
-    transform: $transformare_i;
-  } /* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
+} @else {
+  @keyframes gal_exemplu {
+    0% {
+      z-index: 10;
+      opacity: 1;
+      clip-path: circle(70%);
+    } /*perioada 0-5% in care se afiseaza fara efect */
+    5% {
+      clip-path: circle(30%);
+      transform: $transformare_i;
+    } /*transformare inceput disparitie*/
+    8% {
+      opacity: 0.5;
+    } /* de  aici doresc sa descresc si opacitatea;*/
+    10% {
+      z-index: 10;
+      opacity: 0;
+      transform: $transformare_f;
+    }
+    10.01% {
+      z-index: -10;
+      transform: $transformare_i;
+    } /* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
 
-  85.714287% {
-    opacity: 0;
-    transform: $transformare_i;
-    z-index: -10;
-  }
-  85.714288% {
-    z-index: 0;
-  } /*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
-  100% {
-    opacity: 1;
-    z-index: 0;
+    90% {
+      opacity: 0;
+      transform: $transformare_i;
+      z-index: -10;
+    }
+    90.01% {
+      z-index: 0;
+    } /*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
+    100% {
+      opacity: 1;
+      z-index: 0;
+    }
   }
 }
 

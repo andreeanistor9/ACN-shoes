@@ -77,22 +77,34 @@ function get_anotimp(){
   if(luna >=9 && luna <=11)
     anotimp = "toamna"
 
-  console.log(anotimp)
+  // console.log(anotimp)
 }
 
 get_anotimp();
 
+function get_imag_animate() {
+  var lista_imagini = [];
+  var numere = [5,7,9,11];
+  nr_imag_aleatoare_calculat = numere[Math.floor(Math.random() * numere.length)];
+  var array=obImagini.imagini;
+  for (let imag of array) {
+      if (imag.titlu.length>=1) {
+          lista_imagini.push(imag);
+          if (lista_imagini.length == nr_imag_aleatoare_calculat) {
+              break;
+          }
+      }
+  }
+  return lista_imagini;
+}
+get_imag_animate();
 app.get("*/galerie-animata.css",function(req, res){
   /*Atentie modul de rezolvare din acest app.get() este strict pentru a demonstra niste tehnici
   si nu pentru ca ar fi cel mai eficient mod de rezolvare*/
   res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
   let sirScss=fs.readFileSync("./resurse/scss/galerie_animata.scss").toString("utf-8");//citesc scss-ul cs string
-  culori=["navy","black","purple","grey"]
-  let culoareAleatoare =culori[Math.floor(Math.random()*culori.length)];//iau o culoare aleatoare pentru border
-//console.log(culoareAleatoare);
-  //let nrImag= 10+Math.floor(Math.random()*5)*2;  //Math.floor(Math.random()*10) 
-  let rezScss=ejs.render(sirScss,{culoare:culoareAleatoare});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
-  //console.log(rezScss);
+  let rezScss=ejs.render(sirScss,{nr_imagini: nr_imag_aleatoare_calculat});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
+  // console.log(rezScss);
   fs.writeFileSync("./temp/galerie-animata.scss",rezScss);//scriu scss-ul intr-un fisier temporar
 
 let cale_css=path.join(__dirname,"temp","galerie-animata.css");//__dirname+"/temp/galerie-animata.css"
