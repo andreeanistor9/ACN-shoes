@@ -5,33 +5,86 @@ const ejs=require('ejs');
 const {Client}= require("pg");
 const path = require('path');
 const sass=require('sass');
-app = express();
+var app = express();
 
 console.log(__dirname);
 
 app.set("view engine", "ejs");
 
-// var client = new Client({user: "andreean", password:"parola", host:'localhost', port:5432, database:"db_proiectTW"});
-var client = new Client({
-    user: "zcgronvaxbgtkt",
-    password:"84c26b6ddb1f2e73c6207d247e5d883ea20715a7e9f8ddbce2e7d548749c9aa8",
-    host:'ec2-34-206-238-105.compute-1.amazonaws.com', 
-    port:5432, 
-    database:"d1ti9t4fb3kj77",
-    ssl: {
-        rejectUnauthorized: false
-    }});
+var client = new Client({user: "andreean", password:"parola", host:'localhost', port:5432, database:"db_proiectTW"});
+// var client = new Client({
+//     user: "zcgronvaxbgtkt",
+//     password:"84c26b6ddb1f2e73c6207d247e5d883ea20715a7e9f8ddbce2e7d548749c9aa8",
+//     host:'ec2-34-206-238-105.compute-1.amazonaws.com', 
+//     port:5432, 
+//     database:"d1ti9t4fb3kj77",
+//     ssl: {
+//         rejectUnauthorized: false
+//     }});
 client.connect();
 
+app.use("/resurse",express.static(__dirname+"/resurse"));
 
-app.use("/resurse", express.static(__dirname + "/resurse"));
+var v_optiuni=[];
+client.query("select * from unnest(enum_range(null::categorie_produse))", function(errCateg, rezCateg){
+    
+    for(let elem of rezCateg.rows){
+        v_optiuni.push(elem.unnest);
+    }
+    console.log(v_optiuni);
+    
+})
 
-app.get("/produse", function (req, res) {
-  console.log(req.query);
-  client.query("SELECT * FROM produse", function (err, rez) {
-    res.render("pagini/produse", { produse: rez.rows });
-  });
+
+
+
+client.query("select * from produse", function(err, rez){
+    //console.log(err);
+    //console.log(rez);
 });
+
+
+
+
+app.get("/produse", function(req, res){
+    console.log(req.query)
+    var conditie=""
+    if(req.query.tip)
+        conditie+=` and tip_produs='${req.query.tip}'`;
+    client.query(`select * from produse where 1=1 ${conditie}`, function(err,rez){
+        console.log(err)
+        if (!err){
+            //console.log(rez);
+            client.query("select * from unnest(enum_range(null::categorie_produse))", function(errCateg, rezCateg){
+                
+                v_optiuni=[];
+                for(let elem of rezCateg.rows){
+                    v_optiuni.push(elem.unnest);
+                }
+                console.log(v_optiuni);
+                res.render("pagini/produse",{produse:rez.rows, optiuni:v_optiuni});
+            })
+            
+        }
+        // else{//TO DO curs
+        // }
+    })
+})
+
+
+app.get("/produs/:id", function(req, res){
+    console.log(req.params)
+    client.query(`select * from produse where id=${req.params.id}`, function(err,rez){
+        if (!err){
+            console.log(rez);
+            res.render("pagini/produs",{prod:rez.rows[0]});
+        }
+        else{//TO DO curs
+        }
+    })
+})
+
+
 
 function creeazaImagini(){
   var buf=fs.readFileSync(__dirname+"/resurse/json/galerie.json").toString("utf-8");
@@ -85,15 +138,14 @@ get_anotimp();
 function get_imag_animate() {
   var lista_imagini = [];
   var numere = [5,7,9,11];
-  nr_imag_aleatoare_calculat = numere[Math.floor(Math.random() * numere.length)];
+  nr_imag_random = numere[Math.floor(Math.random() * numere.length)];
   var array=obImagini.imagini;
   for (let imag of array) {
-      if (imag.titlu.length>=1) {
           lista_imagini.push(imag);
-          if (lista_imagini.length == nr_imag_aleatoare_calculat) {
+          if (lista_imagini.length == nr_imag_random) {
               break;
           }
-      }
+      
   }
   return lista_imagini;
 }
@@ -103,7 +155,7 @@ app.get("*/galerie-animata.css",function(req, res){
   si nu pentru ca ar fi cel mai eficient mod de rezolvare*/
   res.setHeader("Content-Type","text/css");//pregatesc raspunsul de tip css
   let sirScss=fs.readFileSync("./resurse/scss/galerie_animata.scss").toString("utf-8");//citesc scss-ul cs string
-  let rezScss=ejs.render(sirScss,{nr_imagini: nr_imag_aleatoare_calculat});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
+  let rezScss=ejs.render(sirScss,{nr_imagini: nr_imag_random});// transmit culoarea catre scss si obtin sirul cu scss-ul compilat
   // console.log(rezScss);
   fs.writeFileSync("./temp/galerie-animata.scss",rezScss);//scriu scss-ul intr-un fisier temporar
 

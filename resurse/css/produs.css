@@ -1,0 +1,50 @@
+h2 {
+  padding: 0.4rem;
+}
+#art-produs {
+  margin: 0 auto;
+  width: 70%;
+  max-width: 700px;
+  background-color: var(--background-color);
+  box-shadow: 0px 0px 10px 5px grey;
+  padding: 0.4rem;
+}
+#art-produs h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+#art-produs p {
+  margin: 0;
+  padding: 0.4rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+#art-produs p span {
+  font-weight: normal;
+}
+#art-produs p:nth-of-type(even) {
+  background-color: rgb(207, 205, 205);
+}
+#art-produs p:nth-of-type(odd) {
+  background-color: rgb(231, 226, 226);
+}
+.imag-produs {
+  text-align: center;
+}
+.imag-produs img {
+  width: 60%;
+  height: auto;
+}
+#art-produs .pret {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+@media screen and (max-width: 700px) {
+  #art-produs {
+    margin: 0 auto;
+    width: 95%;
+  }
+}

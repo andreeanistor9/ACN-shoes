@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta
+      name="keywords"
+      content=" ghete, incaltaminte, pantofi, sport, slapi, sandale, marime, model, ACN shoes"
+    />
+    <meta
+      name="description"
+      content="Din 2021 ACN SHOES promite sa ofere incaltaminte calitativa. 
+      La noi gasesti pantofi sport, ghete, slapi, sandale pentru toate categoriile de varsta si pentru toate gusturile "
+    />
+
+    <title>ACN Shoes</title>
+    <%- include("../fragmente/head.ejs") %>
+    <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <%- include("../fragmente/header.ejs") %>
+
+    <main>
+      <section>
+        <h2>Pagină produs</h2>
+        <article id="art-produs">
+          <h3><span><%- locals.prod.nume %></span></h3>
+          <figure class="imag-produs">
+            <img
+              src="/resurse/imagini/produse/<%- locals.prod.imagine %>"
+              alt="[imagine <%- locals.prod.nume %>]"
+            />
+          </figure>
+          <h4 class="pret">Pret: <span><%- locals.prod.pret %> LEI</span></h4>
+          <p>
+            Descriere:
+            <span><%- locals.prod.descriere %> </span>
+          </p>
+          <p>Marimi disponibile: <span><%- locals.prod.marime %> </span></p>
+          <p>
+            Materiale folosite:
+            <span class><%- locals.prod.materiale %> </span>
+          </p>
+          <p>Culoare: <span><%- locals.prod.culoare %> </span></p>
+          <p>
+            Categorie:
+            <span><%- locals.prod.categorie %> </span>
+          </p>
+          <p>
+            Disponibil in magazin:
+            <span><%- locals.prod.disponibil_in_magazin %> </span>
+          </p>
+          <p>
+            Data adăugare:
+            <span><%- locals.prod.data_adaugare %> </span>
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <%- include("../fragmente/footer.ejs") %>
+  </body>
+</html>

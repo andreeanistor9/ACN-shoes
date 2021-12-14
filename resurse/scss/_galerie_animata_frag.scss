@@ -44,7 +44,7 @@ $animation-delay: 0s;
   animation-duration: $animation-delay;
   transform-origin: center center;
 }
-#galerie-animata figure:hover {
+#galerie-animata:hover figure {
   animation-play-state: paused;
 }
 

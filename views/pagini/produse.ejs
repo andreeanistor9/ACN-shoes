@@ -1,20 +1,107 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%- include("../fragmente/head.ejs") %>
-  </head>
+    <head>
+        <meta
+        name="keywords"
+        content=" ghete, incaltaminte, pantofi, sport, slapi, sandale, marime, model, ACN shoes"
+      />
+      <meta
+        name="description"
+        content="Din 2021 ACN SHOES promite sa ofere incaltaminte calitativa. 
+        La noi gasesti pantofi sport, ghete, slapi, sandale pentru toate categoriile de varsta si pentru toate gusturile "
+      />
+  
+      <title>ACN Shoes</title>
+      <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+         
+          <%- include("../fragmente/head") %>     
+          <script type="text/javascript" src=/resurse/js/produse.js></script>
+      </head>
 
   <body>
     <%- include("../fragmente/header.ejs") %>
 
     <main>
-      <section>
-        <% for(let pr of locals.produse){ %>
+      <label> Nume: <input type="text" id="inp-nume"></label>
+        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
+        <div> Marimi:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+            <label>
+                <input id="i_rad1"  name="gr_rad" value="1" type="radio"/>
+                <span>Mic( &lt; 36)</span>
+            </label>
+            <label> 
+                <input id="i_rad2"  name="gr_rad" value="2" type="radio"/>
+                <span>Mediu (36 &le; marimi &lt; 41)</span>
+            </label>
+            <label>
+                <input id="i_rad3" name="gr_rad" value="3" type="radio"/>
+                <span>Mare (41 &le;marimi &lt; 47)</span>
+            </label>
+            <label>
+                <input id="i_rad4" checked name="gr_rad" value="4" type="radio"/>
+                <span>Toate</span>
+            </label>
+        </div>
 
-        <p><%- pr.nume %></p>
+        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="700"> <span id="infoRange">(0)</span></label>
+        <label>Select simplu:
+            <select id="inp-categorie">
+                <option id="sel-toate" selected value="toate">toate</option>
+                <% for (let opt of locals.optiuni) { %>
+                    <option value="<%- opt %>"><%- opt %> </option>
+                <% } %>
+            </select>
+        </label>
 
-        <% } %>
-      </section>
+        <label>Select multiplu:
+            <select id="i_sel_multiplu" multiple size="3">  
+                <option id="sel-toate" selected value="toate">toate</option>
+                    <<% for (let opt of locals.optiuni) { %>
+                        <option value="<%- opt %>"><%- opt %> </option>
+                    <% } %>       
+            </select>
+        </label>
+       
+        <label>Disponibil in magazin:
+            <input id="i_check" name="check" checked value="10" type="checkbox"/>
+        </label>
+
+        <label>Descriere:
+            <textarea id="textarea" name="descriere" rows="1" cols="20"></textarea>
+        </label>
+
+        <p>
+        <button id="filtrare">Filtreaza</button> <button id="resetare">Reseteaza</button><br/>
+        <button id="sortCrescNume">Sorteaza crescator dupa nume si pret</button>
+        <button id="sortDescrescNume">Sorteaza descrescator dupa nume si pret</button>
+        
+        </p>
+        
+        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+        <section id="produse">
+            <h2>Produse</h2>
+            <div class="grid-produse">
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs" >
+                        <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <div class="info-prod">
+                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
+                            <p class="marimi">Marime: <span class="val-marimi"><%- prod.marime%></span></p>
+                            <p class="culoare">Culoare: <span class="val-culoare"><%- prod.culoare%></span></p>
+                            <p class="disponibil">Disponibil in magazin: <span class="val-disponibil"><%- prod.disponibil_in_magazin%></span></p>
+                        </div>
+                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
+                        <figure>
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                        </figure>
+                        <label class="selecteaza-cos">
+                            Selectează:<br/>
+                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                <% }%>
+            </div>
+        </section>
     </main>
     <%- include("../fragmente/footer.ejs") %>
   </body>

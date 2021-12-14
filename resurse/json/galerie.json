@@ -28,19 +28,19 @@
 			"descriere":"ACN Air 380",
 			"anotimp":"iarna"
 		},
-		
-		{
-			"fisier":"adidasi_strada.jpg",
-			"titlu":"adidas_strada",
-			"descriere":"ACN JDx280",
-			"anotimp":"iarna"
-		},
 		{
 			"fisier":"adidasi_dama.jpg",
 			"titlu":"adidas_dama",
 			"descriere":"ACN CxT9",
 			"anotimp":"iarna"
 		},
+		{
+			"fisier":"adidasi_strada.jpg",
+			"titlu":"adidas_strada",
+			"descriere":"ACN JDx280",
+			"anotimp":"iarna"
+		},
+		
 		{
 			"fisier":"tenisi_baietei.jpg",
 			"titlu":"tenisi_baietei",
