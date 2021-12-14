@@ -6,6 +6,9 @@
 -- Dumped by pg_dump version 14.0
 
 -- Started on 2021-12-14 15:48:39
+DROP TABLE IF EXISTS produse CASCADE;
+DROP TYPE IF EXISTS categorie_produse CASCADE;
+DROP TYPE IF EXISTS tipuri_produse CASCADE;
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -22,7 +25,7 @@ SET row_security = off;
 -- TOC entry 828 (class 1247 OID 16722)
 -- Name: categorie_produse; Type: TYPE; Schema: public; Owner: postgres
 --
-DROP TABLE IF EXISTS produse;
+
 CREATE TYPE public.categorie_produse AS ENUM (
     'pantofi sport',
     'ghete',
@@ -30,7 +33,7 @@ CREATE TYPE public.categorie_produse AS ENUM (
 );
 
 
-ALTER TYPE public.categorie_produse OWNER TO postgres;
+
 
 --
 -- TOC entry 831 (class 1247 OID 16730)
@@ -44,7 +47,7 @@ CREATE TYPE public.tipuri_produse AS ENUM (
 );
 
 
-ALTER TYPE public.tipuri_produse OWNER TO postgres;
+
 
 SET default_tablespace = '';
 
@@ -71,7 +74,7 @@ CREATE TABLE public.produse (
 );
 
 
-ALTER TABLE public.produse OWNER TO andreean;
+
 
 --
 -- TOC entry 209 (class 1259 OID 16737)
@@ -87,7 +90,7 @@ CREATE SEQUENCE public.produse_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.produse_id_seq OWNER TO andreean;
+
 
 --
 -- TOC entry 3325 (class 0 OID 0)
@@ -150,8 +153,7 @@ SELECT pg_catalog.setval('public.produse_id_seq', 22, true);
 -- Name: produse produse_nume_key; Type: CONSTRAINT; Schema: public; Owner: andreean
 --
 
-ALTER TABLE ONLY public.produse
-    ADD CONSTRAINT produse_nume_key UNIQUE (nume);
+
 
 
 --

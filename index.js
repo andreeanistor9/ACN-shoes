@@ -31,8 +31,7 @@ client.query("select * from unnest(enum_range(null::categorie_produse))", functi
     for(let elem of rezCateg.rows){
         v_optiuni.push(elem.unnest);
     }
-    console.log(v_optiuni);
-    
+    // console.log(v_optiuni);
 })
 
 
