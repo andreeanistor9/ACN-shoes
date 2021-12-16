@@ -1,21 +1,110 @@
 main {
-  --padd-main: 1rem;
+  --padd-main: 2rem;
   padding-left: var(--padd-main);
   padding-right: var(--padd-main);
+  padding-top: var(--padd-main);
+  text-transform: uppercase;
+}
+.butoane {
+  text-align: center;
+}
+button {
+  background-color: black;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all 0.5s linear;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
 }
 
+button:hover {
+  background-color: var(--cl-marcare);
+}
+.filtre {
+  text-align: center;
+}
+input[type="text"],
+textarea {
+  width: 40%;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#inp-pret {
+  -webkit-appearance: none;
+  width: 40%;
+  height: 20px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+#inp-pret:hover {
+  opacity: 1;
+}
+
+#inp-pret::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--nav-color);
+  cursor: pointer;
+}
+
+#inp-categorie {
+  background-color: rgb(59, 59, 59);
+  color: white;
+}
+#inp-categorie:hover {
+  background-color: var(--nav-color);
+}
+#i_sel_multiplu {
+  background-color: rgb(59, 59, 59);
+  color: white;
+}
+
+#i_sel_multiplu option:hover {
+  background-color: var(--c1-marcare);
+  color: white;
+}
+
+#i_sel_multiplu::-webkit-scrollbar {
+  background-color: var(--nav-color);
+}
+#i_sel_multiplu::-webkit-scrollbar-thumb {
+  background-color: var(--cl-marcare);
+}
+
+.selecturi {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+}
 .grid-produse {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 }
 .grid-produse .produs {
-  border-radius: 2rem;
   box-shadow: 0px 0px 0.8rem 0.1rem rgb(0, 0, 0);
   overflow: hidden;
-  text-transform: uppercase;
 }
-
+#grid-produs {
+  display: grid;
+  grid-template-areas: "caracteristici categ";
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  padding: 4%;
+}
 .grid-produse .produs h3 {
   background-color: rgb(255, 255, 255);
   text-align: center;
@@ -41,21 +130,35 @@ main {
   border: 1px solid grey;
 }
 .grid-produse .produs .info-prod {
-  display: flex;
-  background-color: var(--nav-color);
-  color: white;
+  display: block;
+  background-color: rgb(255, 255, 255);
 }
-.grid-produse .produs .info-prod p {
-  width: 30%;
+.grid-produse .produs .info-prod ul li p {
+  font-size: 1rem;
   text-align: center;
   font-weight: bold;
+  color: rgb(90, 90, 90);
 }
-
-.grid-produse .produs p.categorie {
+.grid-produse .produs .info-prod ul li p span {
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+}
+ul li {
+  list-style-type: none;
+}
+ul > li {
+  height: 20px;
+}
+#categ p {
   text-align: center;
   font-weight: bold;
+  font-size: 1rem;
+  margin-top: 50px;
+  color: rgb(90, 90, 90);
 }
-
+#categ p span {
+  color: rgb(0, 0, 0);
+}
 .info-produse {
   background-color: var(--cl-marcare);
   padding: 0.2rem;
@@ -67,7 +170,7 @@ main {
 }
 .selecteaza-cos {
   display: inline-block;
-  background-color: var(--culoare-mov);
+  background-color: rgb(179, 179, 179);
   position: absolute;
   bottom: 0.5rem;
   right: 0.5rem;
@@ -80,5 +183,14 @@ main {
 .selecteaza-cos:hover {
   background-color: var(--cl-marcare);
 
-  border: 1px solid var(--culoare-mov);
+  border: 1px solid black;
+}
+@media screen and (max-width: 700px) {
+  .grid-produse {
+    display: block;
+    padding: 4%;
+  }
+  .grid-produse .produs {
+    overflow: visible;
+  }
 }

@@ -1,6 +1,7 @@
 @import "nav.css";
 html {
   font-size: 16px;
+  font-family: "Oswald", sans-serif;
 }
 body {
   --background-color: #f2f2f2;
@@ -22,7 +23,6 @@ body {
   background-color: var(--background-color);
 }
 .scris {
-  font-family: "Oswald", sans-serif;
   font-size: 4vw;
   margin-bottom: 2px;
   margin-top: 2px;

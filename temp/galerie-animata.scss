@@ -10,5 +10,5 @@ $indice: math.random(list.length($lista_transformari));
   (
     $transformare_i: list.nth(list.nth($lista_transformari, $indice), 1),
     $transformare_f: list.nth(list.nth($lista_transformari, $indice), 2),
-    $setare-server: 11
+    $setare-server: 9
   );

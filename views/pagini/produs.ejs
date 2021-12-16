@@ -31,6 +31,12 @@
           </figure>
           <h4 class="pret">Pret: <span><%- locals.prod.pret %> LEI</span></h4>
           <p>
+            ID:
+            <span style="text-transform: lowercase"
+              >artc-<%- locals.prod.id %></span
+            >
+          </p>
+          <p>
             Descriere:
             <span><%- locals.prod.descriere %> </span>
           </p>
@@ -50,7 +56,13 @@
           </p>
           <p>
             Data adăugare:
-            <span><%- locals.prod.data_adaugare %> </span>
+            <time>
+              <% var options = { year: "numeric", month: "long", day: "numeric"
+              }; var days =
+              ['Duminică','Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă'];
+              %> <%- prod.data_adaugare.toLocaleString('ro-RO', options ); %>
+              <%- `[${days[prod.data_adaugare.getDay()]}]` %>
+            </time>
           </p>
         </article>
       </section>
