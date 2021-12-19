@@ -24,8 +24,11 @@
     <main>
         
     <div class = "filtre">
-      <label> Nume: <input type="text" id="inp-nume"></label>
-        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
+    <form action="javascript:void(0);">
+      <label> Nume: <input type="text" id="inp-nume" pattern="[a-zA-Z0-9\s]+" title="Numele contine doar litere si cifre"></label>
+    
+    
+      <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
         <div> Marimi:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
             <label>
                 <input id="i_rad4" checked name="gr_rad" value="4" type="radio"/>
@@ -75,17 +78,20 @@
             <textarea id="inp-descriere" name="descriere" rows="1" cols="20" placeholder="Scrieti..."></textarea>
         </label>
     </div>
-
-
     <p class="butoane">
-        <button id="filtrare">Filtreaza</button> 
+        <button type="submit" id="filtrare">Filtreaza</button> 
         <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCrescNume">Sorteaza crescator dupa nume si pret</button>
-        <button id="sortDescrescNume">Sorteaza descrescator dupa nume si pret</button>
-        
+        <button type="submit" id="sortCrescNume">Sorteaza crescator dupa nume si pret</button>
+        <button type="submit" id="sortDescrescNume">Sorteaza descrescator dupa nume si pret</button>
+        <br>
+        <button type="submit" id="suma">Suma preturilor</button>
+        <p id="p-suma" style="text-align: center;">Apasati mai intai CTRL + click apoi doar click pentru suma <br></p>
     </p>
+</form>
+
+   
         
-    <p id="p-suma" style="text-align: center;">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+    
 
     </div>
         <section id="produse">

@@ -193,4 +193,7 @@ ul > li {
   .grid-produse .produs {
     overflow: visible;
   }
+  .grid-produse .produs h3 a:hover {
+    font-size: 1.3rem;
+  }
 }

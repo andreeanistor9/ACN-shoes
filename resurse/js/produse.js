@@ -9,19 +9,21 @@ window.onload = function () {
       var nume = art.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
       var nume_introdus = document.getElementById("inp-nume").value.toLowerCase();
       let nr = 0;
-      if(nume.length == nume_introdus.length)
-      for (let i=0; i< nume.length; i++){
-        if(nume[i] != nume_introdus[i]){
-          nr+=1;
+      
+        if(nume.length == nume_introdus.length)
+        for (let i=0; i< nume.length; i++){
+          if(nume[i].trim() != nume_introdus[i].trim()){
+            nr+=1;
+          }
+          if(nr<=2)
+          var conditie1 = true;
+          else
+          conditie1 = false;
         }
-        if(nr<=2)
-        var conditie1 = true;
-        else
-         conditie1 = false;
-      }
+    
       if(nume_introdus.length == 0)
         conditie1 = true;
-      
+        
 
       var pret = art.getElementsByClassName("val-pret")[0];
       var conditie2 =
@@ -101,10 +103,14 @@ window.onload = function () {
        var descriere = art.getElementsByClassName("val-descriere")[0].innerHTML.toLowerCase();
        var descriere_introdus = document.getElementById("inp-descriere").value.toLowerCase();
        var conditie7 = descriere == descriere_introdus
-       if (descriere_introdus == '')
-       conditie7 = true
-      
-
+    
+       if(!(/^[A-Za-z]+$/.test(descriere_introdus.trim())) && descriere_introdus.length != 0){
+         alert('Descrierea produsului poate contine doar litere')
+         return
+        }
+        if(descriere_introdus.length == 0)
+          conditie7 = true;
+        
       if (
         conditie1 &&
         conditie2 &&
@@ -155,11 +161,22 @@ window.onload = function () {
   var btn2 = document.getElementById("sortCrescNume");
   btn2.onclick = function () {
     sorteaza(1);
+    var descriere_introdus = document.getElementById("inp-descriere").value.toLowerCase();
+    if(!(/^[A-Za-z]+$/.test(descriere_introdus.trim())) && descriere_introdus.length != 0){
+      alert('Descrierea produsului poate contine doar litere')
+      sorteaza(0)
+      return
+     }
   };
 
   var btn3 = document.getElementById("sortDescrescNume");
   btn3.onclick = function () {
     sorteaza(-1);
+    var descriere_introdus = document.getElementById("inp-descriere").value.toLowerCase();
+    if(!(/^[A-Za-z]+$/.test(descriere_introdus.trim())) && descriere_introdus.length != 0){
+      alert('Descrierea produsului poate contine doar litere')
+      return
+     }
   };
 
   document.getElementById("resetare").onclick = function () {
@@ -185,9 +202,9 @@ window.onload = function () {
   };
 };
 
-window.onkeydown = function (e) {
-  console.log(e);
-  if (e.key == "c" && e.altKey == true) {
+window.onkeydown = function () {
+  var btn4 = document.getElementById("suma");
+  btn4.onclick = function () {
     var suma = 0;
     var articole = document.getElementsByClassName("produs");
     for (let art of articole) {
@@ -197,9 +214,9 @@ window.onkeydown = function (e) {
 
     var spanSuma;
     spanSuma = document.getElementById("numar-suma");
-    if (!spanSuma) {
+    if (!spanSuma && suma) {
       spanSuma = document.createElement("span");
-      spanSuma.innerHTML = " Suma:" + suma; //<span> Suma:...
+      spanSuma.innerHTML = " Suma preturilor produselor incarcate in pagina este:" + Math.round(suma * 100) / 100 + "lei"; //<span> Suma:...
       spanSuma.id = "numar-suma"; //<span id="..."
       document.getElementById("p-suma").appendChild(spanSuma);
       setTimeout(function () {
