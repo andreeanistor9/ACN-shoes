@@ -23,42 +23,42 @@ SET row_security = off;
 -- Name: categorie_produse; Type: TYPE; Schema: public; Owner: postgres
 --
 
-CREATE TYPE public.categorie_produse AS ENUM (
+CREATE TYPE  public.categorie_produse AS ENUM (
     'pantofi sport',
     'ghete',
     'slapi si sandale'
 );
 
 
-ALTER TYPE public.categorie_produse OWNER TO postgres;
+
 
 --
 -- TOC entry 836 (class 1247 OID 16785)
 -- Name: roluri; Type: TYPE; Schema: public; Owner: postgres
 --
 
-CREATE TYPE public.roluri AS ENUM (
+CREATE TYPE  public.roluri AS ENUM (
     'admin',
     'moderator',
     'comun'
 );
 
 
-ALTER TYPE public.roluri OWNER TO postgres;
+
 
 --
 -- TOC entry 833 (class 1247 OID 16730)
 -- Name: tipuri_produse; Type: TYPE; Schema: public; Owner: postgres
 --
 
-CREATE TYPE public.tipuri_produse AS ENUM (
+CREATE TYPE  public.tipuri_produse AS ENUM (
     'femei',
     'barbati',
     'copii'
 );
 
 
-ALTER TYPE public.tipuri_produse OWNER TO postgres;
+
 
 SET default_tablespace = '';
 
@@ -69,7 +69,7 @@ SET default_table_access_method = heap;
 
 --
 
-CREATE TABLE public.accesari (
+CREATE TABLE  public.accesari (
     id integer NOT NULL,
     ip character varying(100) NOT NULL,
     user_id integer,
@@ -110,7 +110,7 @@ ALTER SEQUENCE public.accesari_id_seq OWNED BY public.accesari.id;
 
 --
 
-CREATE TABLE public.produse (
+CREATE TABLE  public.produse (
     id integer NOT NULL,
     nume character varying(50) NOT NULL,
     descriere text,
@@ -157,7 +157,7 @@ ALTER SEQUENCE public.produse_id_seq OWNED BY public.produse.id;
 
 --
 
-CREATE TABLE public.utilizatori (
+CREATE TABLE  public.utilizatori (
     id integer NOT NULL,
     username character varying(50) NOT NULL,
     nume character varying(100) NOT NULL,

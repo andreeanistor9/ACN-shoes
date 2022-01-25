@@ -75,10 +75,11 @@ var v_optiuni=[];
 client.query(
   "select * from unnest(enum_range(null::categorie_produse))",
   function (errCateg, rezCateg) {
+    console.log('==========', errCateg);
     for (let elem of rezCateg.rows) {
       v_optiuni.push(elem.unnest);
     }
-    // console.log(v_optiuni);
+     
   }
 );
 
