@@ -66,7 +66,7 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 214 (class 1259 OID 16945)
--- Name: accesari; Type: TABLE; Schema: public; Owner: andreean
+
 --
 
 CREATE TABLE public.accesari (
@@ -78,11 +78,11 @@ CREATE TABLE public.accesari (
 );
 
 
-ALTER TABLE public.accesari OWNER TO andreean;
+
 
 --
 -- TOC entry 213 (class 1259 OID 16944)
--- Name: accesari_id_seq; Type: SEQUENCE; Schema: public; Owner: andreean
+
 --
 
 CREATE SEQUENCE public.accesari_id_seq
@@ -94,12 +94,12 @@ CREATE SEQUENCE public.accesari_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.accesari_id_seq OWNER TO andreean;
+
 
 --
 -- TOC entry 3357 (class 0 OID 0)
 -- Dependencies: 213
--- Name: accesari_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: andreean
+
 --
 
 ALTER SEQUENCE public.accesari_id_seq OWNED BY public.accesari.id;
@@ -107,7 +107,7 @@ ALTER SEQUENCE public.accesari_id_seq OWNED BY public.accesari.id;
 
 --
 -- TOC entry 210 (class 1259 OID 16738)
--- Name: produse; Type: TABLE; Schema: public; Owner: andreean
+
 --
 
 CREATE TABLE public.produse (
@@ -126,11 +126,10 @@ CREATE TABLE public.produse (
 );
 
 
-ALTER TABLE public.produse OWNER TO andreean;
 
 --
 -- TOC entry 209 (class 1259 OID 16737)
--- Name: produse_id_seq; Type: SEQUENCE; Schema: public; Owner: andreean
+
 --
 
 CREATE SEQUENCE public.produse_id_seq
@@ -142,12 +141,12 @@ CREATE SEQUENCE public.produse_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.produse_id_seq OWNER TO andreean;
+
 
 --
 -- TOC entry 3358 (class 0 OID 0)
 -- Dependencies: 209
--- Name: produse_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: andreean
+
 --
 
 ALTER SEQUENCE public.produse_id_seq OWNED BY public.produse.id;
@@ -155,7 +154,7 @@ ALTER SEQUENCE public.produse_id_seq OWNED BY public.produse.id;
 
 --
 -- TOC entry 212 (class 1259 OID 16929)
--- Name: utilizatori; Type: TABLE; Schema: public; Owner: andreean
+
 --
 
 CREATE TABLE public.utilizatori (
@@ -175,11 +174,11 @@ CREATE TABLE public.utilizatori (
 );
 
 
-ALTER TABLE public.utilizatori OWNER TO andreean;
+
 
 --
 -- TOC entry 211 (class 1259 OID 16928)
--- Name: utilizatori_id_seq; Type: SEQUENCE; Schema: public; Owner: andreean
+
 --
 
 CREATE SEQUENCE public.utilizatori_id_seq
@@ -191,12 +190,11 @@ CREATE SEQUENCE public.utilizatori_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.utilizatori_id_seq OWNER TO andreean;
 
 --
 -- TOC entry 3359 (class 0 OID 0)
 -- Dependencies: 211
--- Name: utilizatori_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: andreean
+
 --
 
 ALTER SEQUENCE public.utilizatori_id_seq OWNED BY public.utilizatori.id;
@@ -204,7 +202,7 @@ ALTER SEQUENCE public.utilizatori_id_seq OWNED BY public.utilizatori.id;
 
 --
 -- TOC entry 3194 (class 2604 OID 16948)
--- Name: accesari id; Type: DEFAULT; Schema: public; Owner: andreean
+
 --
 
 ALTER TABLE ONLY public.accesari ALTER COLUMN id SET DEFAULT nextval('public.accesari_id_seq'::regclass);
@@ -212,15 +210,14 @@ ALTER TABLE ONLY public.accesari ALTER COLUMN id SET DEFAULT nextval('public.acc
 
 --
 -- TOC entry 3183 (class 2604 OID 16741)
--- Name: produse id; Type: DEFAULT; Schema: public; Owner: andreean
---
+
 
 ALTER TABLE ONLY public.produse ALTER COLUMN id SET DEFAULT nextval('public.produse_id_seq'::regclass);
 
 
 --
 -- TOC entry 3189 (class 2604 OID 16932)
--- Name: utilizatori id; Type: DEFAULT; Schema: public; Owner: andreean
+
 --
 
 ALTER TABLE ONLY public.utilizatori ALTER COLUMN id SET DEFAULT nextval('public.utilizatori_id_seq'::regclass);
@@ -229,7 +226,7 @@ ALTER TABLE ONLY public.utilizatori ALTER COLUMN id SET DEFAULT nextval('public.
 --
 -- TOC entry 3351 (class 0 OID 16945)
 -- Dependencies: 214
--- Data for Name: accesari; Type: TABLE DATA; Schema: public; Owner: andreean
+
 --
 
 INSERT INTO public.accesari (id, ip, user_id, pagina, data_accesare) VALUES (1905, '::1', NULL, '/cos-virtual', '2022-01-25 19:07:07.99775');
@@ -255,7 +252,7 @@ INSERT INTO public.accesari (id, ip, user_id, pagina, data_accesare) VALUES (192
 --
 -- TOC entry 3347 (class 0 OID 16738)
 -- Dependencies: 210
--- Data for Name: produse; Type: TABLE DATA; Schema: public; Owner: andreean
+
 --
 
 INSERT INTO public.produse (id, nume, descriere, tip_produs, categorie, pret, marime, data_adaugare, culoare, imagine, materiale, disponibil_in_magazin) VALUES (1, 'ACN Running 2xZ', 'Pantofi pentru alergat', 'barbati', 'pantofi sport', 249.99, '{41,42,43,45}', '2021-12-14 15:47:50.622146', 'negru', 'adidasi_alergat.jpg', '{panza,spuma}', true);
@@ -285,8 +282,7 @@ INSERT INTO public.produse (id, nume, descriere, tip_produs, categorie, pret, ma
 --
 -- TOC entry 3349 (class 0 OID 16929)
 -- Dependencies: 212
--- Data for Name: utilizatori; Type: TABLE DATA; Schema: public; Owner: andreean
---
+
 
 INSERT INTO public.utilizatori (id, username, nume, prenume, email, parola, data_adaugare, culoare_chat, rol, problema_vedere, fotografie, cod, confirmat_mail) VALUES (1, 'andreean2009', 'Nistor', 'Andreea', 'andreeann2021@gmail.com', '29a35b2c0b53bcf681fee319a090534882b2f4beb591d302981548cdfc655d26', '2022-01-19 22:32:48.628501', 'red', 'admin', false, 'admin-img.jpg', 'admin-smecher', true);
 INSERT INTO public.utilizatori (id, username, nume, prenume, email, parola, data_adaugare, culoare_chat, rol, problema_vedere, fotografie, cod, confirmat_mail) VALUES (20, 'prof27250', 'Gogulescu', 'Gogu', 'profprofprof007@gmail.com', 'e9b1b52bc10f02579484d5c6faceca28eafecc161dcf6033a24ee69b8f95786e', '2022-01-20 13:55:12.706354', 'red', 'comun', true, '', '202204135512/prof27250/JSTMTXGMGJBVXPQPSHXLVKTWLGZFFZRKNSPHBZDKPQWFPKFQFZMMMCNDXFFHPSZDXPWCKCLTHBNRKYGPDGGNZXQBHTXPTDLQBHSQ', true);
@@ -319,7 +315,7 @@ INSERT INTO public.utilizatori (id, username, nume, prenume, email, parola, data
 --
 -- TOC entry 3360 (class 0 OID 0)
 -- Dependencies: 213
--- Name: accesari_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andreean
+
 --
 
 SELECT pg_catalog.setval('public.accesari_id_seq', 1922, true);
@@ -328,7 +324,7 @@ SELECT pg_catalog.setval('public.accesari_id_seq', 1922, true);
 --
 -- TOC entry 3361 (class 0 OID 0)
 -- Dependencies: 209
--- Name: produse_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andreean
+
 --
 
 SELECT pg_catalog.setval('public.produse_id_seq', 22, true);
@@ -337,7 +333,7 @@ SELECT pg_catalog.setval('public.produse_id_seq', 22, true);
 --
 -- TOC entry 3362 (class 0 OID 0)
 -- Dependencies: 211
--- Name: utilizatori_id_seq; Type: SEQUENCE SET; Schema: public; Owner: andreean
+
 --
 
 SELECT pg_catalog.setval('public.utilizatori_id_seq', 38, true);
@@ -345,8 +341,7 @@ SELECT pg_catalog.setval('public.utilizatori_id_seq', 38, true);
 
 --
 -- TOC entry 3205 (class 2606 OID 16953)
--- Name: accesari accesari_pkey; Type: CONSTRAINT; Schema: public; Owner: andreean
---
+
 
 ALTER TABLE ONLY public.accesari
     ADD CONSTRAINT accesari_pkey PRIMARY KEY (id);
@@ -354,8 +349,7 @@ ALTER TABLE ONLY public.accesari
 
 --
 -- TOC entry 3197 (class 2606 OID 16751)
--- Name: produse produse_nume_key; Type: CONSTRAINT; Schema: public; Owner: andreean
---
+
 
 ALTER TABLE ONLY public.produse
     ADD CONSTRAINT produse_nume_key UNIQUE (nume);
@@ -363,7 +357,7 @@ ALTER TABLE ONLY public.produse
 
 --
 -- TOC entry 3199 (class 2606 OID 16749)
--- Name: produse produse_pkey; Type: CONSTRAINT; Schema: public; Owner: andreean
+
 --
 
 ALTER TABLE ONLY public.produse
@@ -372,7 +366,7 @@ ALTER TABLE ONLY public.produse
 
 --
 -- TOC entry 3201 (class 2606 OID 16941)
--- Name: utilizatori utilizatori_pkey; Type: CONSTRAINT; Schema: public; Owner: andreean
+
 --
 
 ALTER TABLE ONLY public.utilizatori
@@ -381,7 +375,7 @@ ALTER TABLE ONLY public.utilizatori
 
 --
 -- TOC entry 3203 (class 2606 OID 16943)
--- Name: utilizatori utilizatori_username_key; Type: CONSTRAINT; Schema: public; Owner: andreean
+
 --
 
 ALTER TABLE ONLY public.utilizatori
@@ -389,8 +383,7 @@ ALTER TABLE ONLY public.utilizatori
 
 
 --
--- TOC entry 3206 (class 2606 OID 16954)
--- Name: accesari accesari_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: andreean
+
 --
 
 ALTER TABLE ONLY public.accesari
