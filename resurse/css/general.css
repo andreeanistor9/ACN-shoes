@@ -1,10 +1,17 @@
 @import "nav.css";
-html {
+/* @import "galerie-statica.css";
+@import "galerie-statica-500.css"; */
+@import "calendar.css";
+@import "useri.css";
+html,
+header {
   font-size: 16px;
   font-family: "Oswald", sans-serif;
+  color: var(--text-color);
 }
 body {
   --background-color: #f2f2f2;
+
   --nav-color: #0d0007;
   --product-text-color: #5a5a5a;
   --price-color: #141414;
@@ -16,11 +23,52 @@ body {
   --buton-iframe: #e8e5fa;
   --arrow-color: #5a5a5c;
   --text-color: #0d0007;
+  --button-color: #2c2b2c;
+  --produs-fundal: #ffffff;
+  --produs-shadow1: #b8b8b9;
+  --produs-shadow2: #8b8a99;
+  --input-color: #ffffff;
+  --button-text: white;
   --padding-intern: 4%;
 }
+
+body.dark {
+  --background-color: #9e9d9d;
+  --imag-body-backgr: url("../imagini/background-dar.jpg");
+  --nav-color: #161542;
+  --product-text-color: #5a5a5a;
+  --price-color: #fff9f9;
+  --white-text-color: #fffdfd;
+  --footer-color: #161542;
+  --height-menu: 3rem;
+  --cl-marcare: rgb(123, 123, 158);
+  --border-color: #9e9d9d;
+  --buton-iframe: #e8e5fa;
+  --arrow-color: #5a5a5c;
+  --button-color: #535388;
+  --button-border: #3d3d69;
+  --button-text: #000000;
+  --text-color: #ffffff;
+  --produs-fundal: #171255;
+  --produs-shadow1: #cbc7f7;
+  --produs-shadow2: #a09bce;
+  --input-color: #cbc7f7;
+  --padding-intern: 4%;
+  --gradient-body: linear-gradient(
+    transparent,
+    transparent 20%,
+    rgb(78, 80, 80) 50%,
+    transparent 30%,
+    transparent 50%
+  );
+}
+
 body {
   min-width: 330px;
-  background-color: var(--background-color);
+  background-image: var(--imag-body-backgr);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .scris {
   font-size: 4vw;
@@ -31,7 +79,26 @@ body {
 p.scris {
   font-size: 2vw;
 }
+
+button {
+  background-color: var(--button-color);
+  color: var(--button-text);
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: all 0.5s linear;
+  text-transform: uppercase;
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+}
+
+button:hover {
+  background-color: var(--cl-marcare);
+}
 h1 {
+  color: var(--text-color);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 4em;
   margin-left: 70px;
@@ -48,13 +115,13 @@ h1 {
     "events              events            tabel           tabel"
     "news                news              tabel           tabel"
     "others              others            others          others";
-  padding: 4%;
 
   /*spatiu intre celulele de grid*/
   grid-gap: 2rem;
 }
 
 #grid-pagina section {
+  color: var(--text-color);
   /*outline:1px solid orange;*/
   border: 5px solid var(--border-color);
   border-style: ridge;
@@ -65,7 +132,6 @@ h1 {
 }
 #welcome {
   grid-area: welcome;
-  background-color: var(--background-color);
   color: var(--product-text-color);
 }
 #online_users {
@@ -185,21 +251,21 @@ h1 {
 }
 footer {
   background-color: var(--footer-color);
-  color: white;
+  color: var(--white-text-color);
   width: 100%;
   padding-bottom: 1rem;
 }
 footer address {
-  color: white;
+  color: var(--white-text-color);
 }
 footer a {
-  color: white;
+  color: var(--white-text-color);
 }
 footer p {
-  color: white;
+  color: var(--white-text-color);
   font-size: 1em;
   margin-left: 40%;
-  text-shadow: 0px 0px 2px white;
+  text-shadow: 0px 0px 2px var(--white-text-color);
 }
 
 ::cue {

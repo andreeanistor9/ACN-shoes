@@ -12,6 +12,11 @@
           <span>ACASA</span>
         </a>
       </li>
+      <% if (!locals.utilizator) { %>
+      <li><a href="/inregistrare">INREGISTRARE</a></li>
+      <% } %> <% if (locals.utilizator && locals.utilizator.rol=="admin") { %>
+      <li><a href="/useri">USERS</a></li>
+      <% } %>
       <li>
         <a href="/produse">PRODUSE</a>
         <ul>
@@ -42,7 +47,6 @@
           </li>
         </ul>
       </li>
-
       <li>
         <a href="/despre">DESPRE NOI</a>
       </li>
@@ -50,6 +54,41 @@
         <a href="/contact">CONTACT</a>
       </li>
       <li><a href="/detalii">DETALII</a></li>
+      <% if (locals.utilizator) { %>
+      <li><a href="/profil"><%- locals.utilizator.username %></a></li>
+      <% } %>
+      <li>
+        <a href="/cos-virtual"><span class="fas fa-shopping-cart"></span></a>
+      </li>
     </ul>
   </nav>
+  <div>
+    <% if (!locals.utilizator) { %>
+
+    <p>Va rugam sa va logati: <br /></p>
+    <form id="login" method="post" action="/login">
+      <label>
+        Username:
+        <input type="text" name="username" value="" class="login" />
+      </label>
+      <label>
+        Parola:
+        <input type="password" name="parola" value="" class="login" />
+      </label>
+
+      <input type="submit" value="LOGIN" />
+    </form>
+    <% if(locals.mesajLogin) {%>
+    <p style="color: red">Eroare: <%- locals.mesajLogin %></p>
+    <% } %> <% } else { %>
+    <p title="logout">
+      Iesire <a href="/logout"><%- locals.utilizator.username%></a>
+    </p>
+    <% } %>
+    <p>
+      <button id="schimba_tema">
+        <span id="temaspan" class="fas fa-solid fa-moon"></span>
+      </button>
+    </p>
+  </div>
 </header>

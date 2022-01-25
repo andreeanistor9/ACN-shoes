@@ -1,0 +1,40 @@
+main {
+  color: var(--text-color);
+  text-align: center;
+}
+.custom-file-input::-webkit-file-upload-button {
+  display: none;
+}
+input[type="submit"],
+input[type="reset"],
+.custom-file-input::before {
+  content: "Alegeti o fotografie";
+  color: var(--button-text);
+  display: inline-block;
+  background-color: var(--button-color);
+  border: 1.5px ridge rgb(109, 108, 108);
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10pt;
+  font-family: "Oswald", sans-serif;
+  transition: all 0.5s linear;
+}
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+.custom-file-input:hover::before {
+  border-color: black;
+  background-color: rgba(179, 179, 179, 0.658);
+}
+.custom-file-input:active::before {
+  background: linear-gradient(top, #b3afaf, #f9f9f9);
+}
+input[type="text"],
+input[type="password"] {
+  width: 20%;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: var(--input-color);
+}

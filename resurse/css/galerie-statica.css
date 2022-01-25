@@ -22,6 +22,7 @@
 }
 #grid-galerie figcaption {
   text-align: center;
+  color: var(--text-color);
 }
 #grid-galerie > figure:nth-child(5) {
   grid-area: 2/3;

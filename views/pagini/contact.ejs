@@ -8,32 +8,51 @@
     <%- include("../fragmente/header.ejs") %>
 
     <main>
-      
-<h3>Date de contact</h3>
-<p>Telefon: 0771779888</p>
-<p>Email: ACNshoes@gmail.com</p>
-<p>Suport clienti: Luni-Vineri: 9:00-19:00</p>
-</section>
-<!-- subetapa 12 -->
-<section>
-<h3>DETALII</h3>
-<h4>INTREBARI FRECVENTE:</h4>
-<p>
-  1. In cat timp se livreaza comenzile? <br />
-  Comenzile se livreaza in general in 3-5 zile lucratoare. Pot aparea
-  intarzieri in preajma sarbatorilor sau a situatiilor speciale. <br />
-  2. Cum se poate efectua plata? <br />
-  Plata se poate efectua atat online din pagina comenzii, cat si cash la
-  livrare. <br />
-  3. In cat timp poate fi disponibil din nou un produs care nu este pe
-  stoc in acest moment? <br />
-  De obicei, produsele indisponibile momentan vor reveni in magazin in
-  2-3 saptamani sau deloc daca sunt editie limitata. <br />
-</p>
-<strong>
-  Parerea ta conteaza! Lasa-ne feedback-ul tau
-  <a href="feedback.html">aici</a>
-</strong>
+      <h3>Date de contact</h3>
+      <p>Telefon: 0771779888</p>
+      <p>Email: ACNshoes@gmail.com</p>
+      <p>Suport clienti: Luni-Vineri: 9:00-19:00</p>
+      <h3>DETALII</h3>
+      <h4>INTREBARI FRECVENTE:</h4>
+      <p>
+        1. In cat timp se livreaza comenzile? <br />
+        Comenzile se livreaza in general in 3-5 zile lucratoare. Pot aparea
+        intarzieri in preajma sarbatorilor sau a situatiilor speciale. <br />
+        2. Cum se poate efectua plata? <br />
+        Plata se poate efectua atat online din pagina comenzii, cat si cash la
+        livrare. <br />
+        3. In cat timp poate fi disponibil din nou un produs care nu este pe
+        stoc in acest moment? <br />
+        De obicei, produsele indisponibile momentan vor reveni in magazin in 2-3
+        saptamani sau deloc daca sunt editie limitata. <br />
+      </p>
+      <strong>
+        Parerea ta conteaza! Lasa-ne feedback-ul tau
+        <a href="feedback.html">aici</a>
+      </strong>
+      <section>
+        <h2>Mesaje:</h2>
+        <% if (locals.mesaje) { var mesajeSort=locals.mesaje.sort(function(a,b)
+        {return (new Date(b.attributes.data)).getTime()-(new
+        Date(a.attributes.data)).getTime()}) for (let msg of mesajeSort) { let
+        dt=new Date(msg.attributes.data); %>
+        <article class="mesaj-c">
+          <h3>
+            <span class="username"><%= msg.attributes.username%></span> spune:
+          </h3>
+          <p><%= msg.elements[0].text %></p>
+          <p>
+            <small
+              ><time datetime="<%= dt.getUTCDate() %>"
+                ><%= dt.toLocaleString('ro-RO', { weekday: 'long', day:
+                'numeric', year: 'numeric', month: 'long', hour: 'numeric',
+                minute: 'numeric', second: 'numeric', }) %></time
+              ></small
+            >
+          </p>
+        </article>
+        <% } %> <% } %>
+      </section>
     </main>
     <%- include("../fragmente/footer.ejs") %>
   </body>

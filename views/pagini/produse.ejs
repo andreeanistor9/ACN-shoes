@@ -71,7 +71,7 @@
    
        <br/>
         <label>Disponibil in magazin:
-            <input id="i_check" name="check" checked value="10" type="checkbox"/>
+            <input id="i_check" name="check"  value="10" type="checkbox"/>
         </label>
         <br/>
         <label>Descriere:
@@ -131,6 +131,11 @@
                         <label class="selecteaza-cos">
                             Selectează:<br/>
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        </label>
+                        <label class="cantitate" >
+                            <button type="button" onclick="adauga()">+</button>
+                             <input type="text" id="number" value="0">
+                             <button type="button" onclick="scade()">-</button>
                         </label>
                     </article>
                 <% }%>

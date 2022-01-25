@@ -4,27 +4,12 @@ main {
   padding-right: var(--padd-main);
   padding-top: var(--padd-main);
   text-transform: uppercase;
+  color: var(--white-text-color);
 }
 .butoane {
   text-align: center;
 }
-button {
-  background-color: black;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 15px;
-  margin: 4px 2px;
-  cursor: pointer;
-  transition: all 0.5s linear;
-  text-transform: uppercase;
-  font-family: "Oswald", sans-serif;
-}
 
-button:hover {
-  background-color: var(--cl-marcare);
-}
 .filtre {
   text-align: center;
 }
@@ -35,6 +20,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  background-color: var(--input-color);
 }
 #inp-pret {
   -webkit-appearance: none;
@@ -61,20 +47,20 @@ textarea {
 }
 
 #inp-categorie {
-  background-color: rgb(59, 59, 59);
-  color: white;
+  background-color: var(--c1-marcare);
+  color: var(--input-color);
 }
 #inp-categorie:hover {
   background-color: var(--nav-color);
 }
 #i_sel_multiplu {
   background-color: rgb(59, 59, 59);
-  color: white;
+  color: var(--input-color);
 }
 
 #i_sel_multiplu option:hover {
   background-color: var(--c1-marcare);
-  color: white;
+  color: var(--input-color);
 }
 
 #i_sel_multiplu::-webkit-scrollbar {
@@ -104,9 +90,10 @@ textarea {
   grid-gap: 1rem;
   grid-template-columns: 1fr 1fr;
   padding: 4%;
+  color: var(--text-color);
 }
 .grid-produse .produs h3 {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--produs-shadow1);
   text-align: center;
   margin-top: 0;
   padding-top: 0.5rem;
@@ -131,16 +118,14 @@ textarea {
 }
 .grid-produse .produs .info-prod {
   display: block;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--produs-fundal);
 }
 .grid-produse .produs .info-prod ul li p {
   font-size: 1rem;
   text-align: center;
   font-weight: bold;
-  color: rgb(90, 90, 90);
 }
 .grid-produse .produs .info-prod ul li p span {
-  color: rgb(0, 0, 0);
   font-size: 1.2rem;
 }
 ul li {
@@ -154,11 +139,8 @@ ul > li {
   font-weight: bold;
   font-size: 1rem;
   margin-top: 50px;
-  color: rgb(90, 90, 90);
 }
-#categ p span {
-  color: rgb(0, 0, 0);
-}
+
 .info-produse {
   background-color: var(--cl-marcare);
   padding: 0.2rem;

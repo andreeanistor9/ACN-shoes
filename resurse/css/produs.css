@@ -5,9 +5,10 @@ h2 {
   margin: 0 auto;
   width: 70%;
   max-width: 700px;
-  background-color: var(--background-color);
-  box-shadow: 0px 0px 10px 5px grey;
+  background-color: var(--produs-fundal);
+  box-shadow: 0px 0px 10px 5px var(--produs-shadow1);
   padding: 0.4rem;
+  color: var(--white-text-color);
 }
 #art-produs h3 {
   font-size: 1.5rem;
@@ -25,10 +26,10 @@ h2 {
   font-weight: normal;
 }
 #art-produs p:nth-of-type(even) {
-  background-color: rgb(207, 205, 205);
+  background-color: var(--produs-shadow1);
 }
 #art-produs p:nth-of-type(odd) {
-  background-color: rgb(231, 226, 226);
+  background-color: var(--produs-shadow2);
 }
 .imag-produs {
   text-align: center;

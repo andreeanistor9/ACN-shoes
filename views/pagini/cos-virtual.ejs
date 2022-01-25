@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <head>
+      <meta
+      name="keywords"
+      content=" ghete, incaltaminte, pantofi, sport, slapi, sandale, marime, model, ACN shoes"
+    />
+    <meta
+      name="description"
+      content="Din 2021 ACN SHOES promite sa ofere incaltaminte calitativa. 
+      La noi gasesti pantofi sport, ghete, slapi, sandale pentru toate categoriile de varsta si pentru toate gusturile "
+    />
+
+    
+    <link
+      rel="stylesheet"
+      href="/resurse/css/cos-virtual.css"
+      type="text/css"
+    />
+    <title>ACN Shoes</title>
+    <%- include("../fragmente/head") %>
+    <script type="text/javascript" src="/resurse/js/cos_virtual.js"></script>
+  </head>
+  <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+      <label class="cantitate" >
+        <button type="button" onclick="adauga()">+</button>
+         <input type="text" id="number" value="0">
+         <button type="button" onclick="scade()">-</button>
+      </label>
+      <button id="cumpara">Cumpara</button>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+  </body>
+</html>

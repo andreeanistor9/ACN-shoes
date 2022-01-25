@@ -1,29 +1,29 @@
 window.onload = function () {
   var btn = document.getElementById("filtrare");
-  
+
   btn.onclick = function () {
     var articole = document.getElementsByClassName("produs");
     for (let art of articole) {
       art.style.display = "none";
 
-      var nume = art.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
-      var nume_introdus = document.getElementById("inp-nume").value.toLowerCase();
+      var nume = art
+        .getElementsByClassName("val-nume")[0]
+        .innerHTML.toLowerCase();
+      var nume_introdus = document
+        .getElementById("inp-nume")
+        .value.toLowerCase();
       let nr = 0;
-      
-        if(nume.length == nume_introdus.length)
-        for (let i=0; i< nume.length; i++){
-          if(nume[i].trim() != nume_introdus[i].trim()){
-            nr+=1;
+
+      if (nume.length == nume_introdus.length)
+        for (let i = 0; i < nume.length; i++) {
+          if (nume[i].trim() != nume_introdus[i].trim()) {
+            nr += 1;
           }
-          if(nr<=2)
-          var conditie1 = true;
-          else
-          conditie1 = false;
+          if (nr <= 2) var conditie1 = true;
+          else conditie1 = false;
         }
-    
-      if(nume_introdus.length == 0)
-        conditie1 = true;
-        
+
+      if (nume_introdus.length == 0) conditie1 = true;
 
       var pret = art.getElementsByClassName("val-pret")[0];
       var conditie2 =
@@ -34,8 +34,7 @@ window.onload = function () {
       var conditie2 =
         parseInt(pret.innerHTML) >
         parseInt(document.getElementById("inp-pret").value);
-      
-      
+
       var radbtns = document.getElementsByName("gr_rad");
       for (let rad of radbtns) {
         if (rad.checked) {
@@ -44,37 +43,39 @@ window.onload = function () {
         }
       }
       var conditie3 = false;
-      var sir = art.getElementsByClassName("val-marimi")[0].innerHTML.split(',')
-      for (let marime of sir){
-      var marimiArt = parseInt(marime);
-      
-      switch (valMarimi) {
-        case "1":
-          conditie3 = conditie3 || marimiArt < 36;
-          break;
-        case "2":
-          conditie3 = conditie3 || (36 <= marimiArt && marimiArt < 41);
-          break;
-        case "3":
-          conditie3 = conditie3 || (41 <=  marimiArt && marimiArt < 47);
-          break;
-        default:
-          conditie3 = true;
+      var sir = art
+        .getElementsByClassName("val-marimi")[0]
+        .innerHTML.split(",");
+      for (let marime of sir) {
+        var marimiArt = parseInt(marime);
+
+        switch (valMarimi) {
+          case "1":
+            conditie3 = conditie3 || marimiArt < 36;
+            break;
+          case "2":
+            conditie3 = conditie3 || (36 <= marimiArt && marimiArt < 41);
+            break;
+          case "3":
+            conditie3 = conditie3 || (41 <= marimiArt && marimiArt < 47);
+            break;
+          default:
+            conditie3 = true;
+        }
       }
-    }
 
       console.log(conditie3);
 
       var selCateg = document.getElementById("inp-categorie");
       var conditie4 =
         art.getElementsByClassName("val-categorie")[0].innerHTML ==
-        selCateg.value || selCateg.value == "toate";
+          selCateg.value || selCateg.value == "toate";
 
       var selCateg = document.getElementById("inp-categorie");
       var conditie4 =
         art.getElementsByClassName("val-categorie")[0].innerHTML ==
           selCateg.value || selCateg.value == "toate";
-      
+
       var conditie5 = false;
       var optiuni = document.getElementById("i_sel_multiplu").options;
       sir = [];
@@ -89,28 +90,32 @@ window.onload = function () {
       )
         conditie5 = true;
       else conditie5 = false;
-    
 
       var disponibilArt =
         art.getElementsByClassName("val-disponibil")[0].innerHTML;
-      var chk= document.getElementById("i_check");
-      if (chk.checked) 
-        cond = "true";
-       else cond = "false";
+      var chk = document.getElementById("i_check");
+      if (chk.checked) cond = "true";
+      else cond = "false";
 
-       var conditie6 = disponibilArt == cond;
-     
-       var descriere = art.getElementsByClassName("val-descriere")[0].innerHTML.toLowerCase();
-       var descriere_introdus = document.getElementById("inp-descriere").value.toLowerCase();
-       var conditie7 = descriere == descriere_introdus
-    
-       if(!(/^[A-Za-z]+$/.test(descriere_introdus.trim())) && descriere_introdus.length != 0){
-         alert('Descrierea produsului poate contine doar litere')
-         return
-        }
-        if(descriere_introdus.length == 0)
-          conditie7 = true;
-        
+      var conditie6 = disponibilArt == cond;
+
+      var descriere = art
+        .getElementsByClassName("val-descriere")[0]
+        .innerHTML.toLowerCase();
+      var descriere_introdus = document
+        .getElementById("inp-descriere")
+        .value.toLowerCase();
+      var conditie7 = descriere == descriere_introdus;
+
+      if (
+        !/^[A-Za-z\s]+$/.test(descriere_introdus.trim()) &&
+        descriere_introdus.length != 0
+      ) {
+        alert("Descrierea produsului poate contine doar litere");
+        return;
+      }
+      if (descriere_introdus.length == 0) conditie7 = true;
+
       if (
         conditie1 &&
         conditie2 &&
@@ -161,22 +166,32 @@ window.onload = function () {
   var btn2 = document.getElementById("sortCrescNume");
   btn2.onclick = function () {
     sorteaza(1);
-    var descriere_introdus = document.getElementById("inp-descriere").value.toLowerCase();
-    if(!(/^[A-Za-z]+$/.test(descriere_introdus.trim())) && descriere_introdus.length != 0){
-      alert('Descrierea produsului poate contine doar litere')
-      sorteaza(0)
-      return
-     }
+    var descriere_introdus = document
+      .getElementById("inp-descriere")
+      .value.toLowerCase();
+    if (
+      !/^[A-Za-z\s]+$/.test(descriere_introdus.trim()) &&
+      descriere_introdus.length != 0
+    ) {
+      alert("Descrierea produsului poate contine doar litere");
+      sorteaza(0);
+      return;
+    }
   };
 
   var btn3 = document.getElementById("sortDescrescNume");
   btn3.onclick = function () {
     sorteaza(-1);
-    var descriere_introdus = document.getElementById("inp-descriere").value.toLowerCase();
-    if(!(/^[A-Za-z]+$/.test(descriere_introdus.trim())) && descriere_introdus.length != 0){
-      alert('Descrierea produsului poate contine doar litere')
-      return
-     }
+    var descriere_introdus = document
+      .getElementById("inp-descriere")
+      .value.toLowerCase();
+    if (
+      !/^[A-Za-z\s]+$/.test(descriere_introdus.trim()) &&
+      descriere_introdus.length != 0
+    ) {
+      alert("Descrierea produsului poate contine doar litere");
+      return;
+    }
   };
 
   document.getElementById("resetare").onclick = function () {
@@ -188,9 +203,8 @@ window.onload = function () {
       "(" + document.getElementById("inp-pret").min + ")";
     document.getElementById("sel-toate").selected = true;
     document.getElementById("sel-toate-multiplu").selected = true;
-    document.getElementById("inp-descriere").value=''
-    document.getElementById("inp-nume").value=''
-    
+    document.getElementById("inp-descriere").value = "";
+    document.getElementById("inp-nume").value = "";
 
     //de completat...
 
@@ -200,7 +214,44 @@ window.onload = function () {
       art.style.display = "block";
     }
   };
+  // adaugare in cos
+  ids_produse_init = localStorage.getItem("produse_selectate");
+  if (ids_produse_init) 
+    ids_produse_init = ids_produse_init.split(",");
+  //obtin vectorul de id-uri ale produselor selectate  (din cosul virtual)
+  else 
+    ids_produse_init = [];
+
+  var checkboxuri_cos = document.getElementsByClassName("select-cos");
+  for (let ch of checkboxuri_cos) {
+    if (ids_produse_init.indexOf(ch.value) != -1) ch.checked = true;
+    ch.onchange = function () {
+      ids_produse = localStorage.getItem("produse_selectate");
+      if (ids_produse) ids_produse = ids_produse.split(",");
+      else ids_produse = [];
+      console.log("Selectie veche:", ids_produse);
+      //ids_produse.map(function(elem){return parseInt(elem)});
+      //console.log(ids_produse);
+      if (ch.checked) {
+        ids_produse.push(ch.value); //adaug elementele noi, selectate (bifate)
+      } else {
+        ids_produse.splice(ids_produse.indexOf(ch.value), 1); //sterg elemente debifate
+      }
+      console.log("Selectie noua:", ids_produse);
+      localStorage.setItem("produse_selectate", ids_produse.join(","));
+    };
+  }
 };
+function adauga(){
+  var a = 1;
+  var textBox = document.getElementById("number");
+  textBox.value++;
+  
+}    
+function scade(){
+var textBox = document.getElementById("number");
+  textBox.value--;
+}
 
 window.onkeydown = function () {
   var btn4 = document.getElementById("suma");
@@ -216,13 +267,15 @@ window.onkeydown = function () {
     spanSuma = document.getElementById("numar-suma");
     if (!spanSuma && suma) {
       spanSuma = document.createElement("span");
-      spanSuma.innerHTML = " Suma preturilor produselor incarcate in pagina este:" + Math.round(suma * 100) / 100 + "lei"; //<span> Suma:...
+      spanSuma.innerHTML =
+        " Suma preturilor produselor incarcate in pagina este:" +
+        Math.round(suma * 100) / 100 +
+        "lei"; //<span> Suma:...
       spanSuma.id = "numar-suma"; //<span id="..."
       document.getElementById("p-suma").appendChild(spanSuma);
       setTimeout(function () {
         document.getElementById("numar-suma").remove();
       }, 1500);
     }
-  }
+  };
 };
-
