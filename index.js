@@ -34,6 +34,7 @@ if(process.env.SITE_ONLINE){
                     ssl: {
                         rejectUnauthorized: false
                     }});
+        console.log('!!!!!!!!! heroku');
 
   }
   else{
