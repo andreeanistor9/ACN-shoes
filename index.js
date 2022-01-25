@@ -808,7 +808,7 @@ app.post("/profil", function(req, res){
 app.get("/logout",function(req,res){
     req.session.destroy();
     res.locals.utilizator=null;
-    res.render("pagini/index", { ip:getIp(req),imagini:obImagini.imagini, cale:obImagini.cale_galerie});
+    res.redirect("/index");
 });
 
 

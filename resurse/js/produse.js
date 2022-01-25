@@ -242,14 +242,14 @@ window.onload = function () {
     };
   }
 };
-function adauga(){
+function adauga(id){
   var a = 1;
-  var textBox = document.getElementById("number");
+  var textBox = document.getElementById(id);
   textBox.value++;
   
 }    
-function scade(){
-var textBox = document.getElementById("number");
+function scade(id){
+var textBox = document.getElementById(id);
   textBox.value--;
 }
 

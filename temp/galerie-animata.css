@@ -27,24 +27,40 @@
   margin: 0;
 }
 
-#galerie-animata figure:nth-of-type(5) {
+#galerie-animata figure:nth-of-type(9) {
   animation-delay: 0s;
 }
 
-#galerie-animata figure:nth-of-type(4) {
+#galerie-animata figure:nth-of-type(8) {
   animation-delay: 2s;
 }
 
-#galerie-animata figure:nth-of-type(3) {
+#galerie-animata figure:nth-of-type(7) {
   animation-delay: 4s;
 }
 
-#galerie-animata figure:nth-of-type(2) {
+#galerie-animata figure:nth-of-type(6) {
   animation-delay: 6s;
 }
 
-#galerie-animata figure:nth-of-type(1) {
+#galerie-animata figure:nth-of-type(5) {
   animation-delay: 8s;
+}
+
+#galerie-animata figure:nth-of-type(4) {
+  animation-delay: 10s;
+}
+
+#galerie-animata figure:nth-of-type(3) {
+  animation-delay: 12s;
+}
+
+#galerie-animata figure:nth-of-type(2) {
+  animation-delay: 14s;
+}
+
+#galerie-animata figure:nth-of-type(1) {
+  animation-delay: 16s;
 }
 
 #galerie-animata figure {
@@ -54,7 +70,7 @@
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
-  animation-duration: 10s;
+  animation-duration: 18s;
   transform-origin: center center;
 }
 
@@ -69,31 +85,31 @@
     clip-path: circle(70%);
   }
   /*perioada 0-5% in care se afiseaza fara efect */
-  6% {
+  5% {
     clip-path: circle(30%);
     transform: rotateZ(0deg);
   }
   /*transformare inceput disparitie*/
-  10% {
+  8% {
     opacity: 0.5;
   }
   /* de  aici doresc sa descresc si opacitatea;*/
-  12% {
+  10% {
     z-index: 10;
     opacity: 0;
     transform: rotateZ(0deg);
   }
-  12.01% {
+  10.01% {
     z-index: -10;
     transform: rotateZ(0deg);
   }
   /* il ascund cat mai in spate sa nu vina peste imaginile care erau mai sus in html decat el*/
-  88% {
+  90% {
     opacity: 0;
     transform: rotateZ(0deg);
     z-index: -10;
   }
-  88.01% {
+  90.01% {
     z-index: 0;
   }
   /*setez z-index la 0 ca sa revina la ordinea normala de afisare*/
