@@ -82,7 +82,7 @@
         </section>
 
         <section id="online_users">
-          <h2>Utilizatori Online</h2>
+          <h2>UTILIZATORI ONLINE</h2>
           <p>Locatie (acum e pentru un ip oarecare hardcodat in index.js - trebuie pus pe heroku ca sa mearga): <%= locals.locatie %></p>
           <p><b>Utilizatori online</b> (în ultimele 5 minute):
               <% for (let i=0;i<locals.utiliz_online.length-1;i++) {%>
@@ -95,7 +95,7 @@
         </section>
 
         <section id="user_stats">
-          <h2>Date despre utilizator</h2>
+          <h2>DATE DESPRE UTILIZATOR</h2>
           <%- "Ip-ul dumneavoastra este: "+ locals.ip %>
           <% if(locals.utilizator) { %>
             <p><%- locals.utilizator.nume %> <%- locals.utilizator.prenume %></p>
@@ -104,9 +104,46 @@
             <p>Culoare chat: <%- locals.utilizator.culoare_chat %></p>
           <%} %>
         </section>
-        <section id="site_server" style="font-size:15px;">
-            <h3>DETALII</h3>
-            <h4>INTREBARI FRECVENTE:</h4>
+        <section id="site_server">
+            <h3>SITE SERVER</h3>
+            <%
+                    dataServer=new Date();
+                    sirData=dataServer.getHours()+":"+dataServer.getMinutes()+":"+dataServer.getSeconds()
+    
+                    %>
+                    <p>Pe localhost vor fi identice; se va observa diferența pe Heroku</p>
+                    <p>Ora server:<span id="data_server"><%= sirData %></span></p>
+                    <p>Ora client:<span id="data_client"></span></p>
+                    <script>
+                        function zero(nr){
+                            if (nr<10) return "0"+nr;
+                            return nr;
+                        }
+                        
+                        d=new Date()
+                        document.getElementById("data_client").innerHTML=zero(d.getHours())+":"+zero(d.getMinutes())+":"+zero(d.getSeconds());
+    
+                        function actualizeazaElemData(id_div){
+                            var data_div=document.getElementById(id_div);
+                            if (data_div.innerHTML!="")
+                            {
+                                var timp=data_div.innerHTML.split(":")
+                                var dt=new Date(2000,1,15, timp[0],timp[1], timp[2] );//nu conteaza data (am pus valori random pentru an, luna si zi) ci timpul
+                            }
+                            else
+                                var dt=new Date();
+                            dt.setSeconds(dt.getSeconds()+1)
+                            data_div.innerHTML=zero(dt.getHours())+":"+zero(dt.getMinutes())+":"+zero(dt.getSeconds());
+                        }
+                        function actualizeazaData(){
+                            actualizeazaElemData("data_client");
+                            actualizeazaElemData("data_server");
+                        }
+                        actualizeazaData()
+                        setInterval(actualizeazaData,1000)
+                    </script>
+            <!-- <h4>INTREBARI FRECVENTE:</h4>
+            <div  style="font-size:15px;">
             <p>
               1. In cat timp se livreaza comenzile? <br />
               Comenzile se livreaza in general in 3-5 zile lucratoare. Pot aparea
@@ -123,14 +160,15 @@
               Parerea ta conteaza! Lasa-ne feedback-ul tau
               <a href="feedback.html">aici</a>
             </strong>
+          </div> -->
         </section>
         <% if(locals.utilizator && locals.utilizator.problema_vedere) { %>
         <section id="events"style = "font-size: 2em;">
             <%} else {%> 
             <section id="events">
               <% } %>
-              <h2>Evenimente</h2>
-                    <p>Observatie: afiseaza doar luna curentă (evenimentele sunt random)</p>
+              <h2>EVENIMENTE</h2>
+                    <p>LUNA ACEASTA</p>
                     <div id="calendar">
                         <div>L</div>
                         <div>Ma</div>
@@ -173,45 +211,10 @@
                         <% } 
                     } %>
                     </div>
-                    <%
-                    dataServer=new Date();
-                    sirData=dataServer.getHours()+":"+dataServer.getMinutes()+":"+dataServer.getSeconds()
-    
-                    %>
-                    <p>Pe localhost vor fi identice; se va observa diferența pe Heroku</p>
-                    <p>Ora server:<span id="data_server"><%= sirData %></span></p>
-                    <p>Ora client:<span id="data_client"></span></p>
-                    <script>
-                        function zero(nr){
-                            if (nr<10) return "0"+nr;
-                            return nr;
-                        }
-                        
-                        d=new Date()
-                        document.getElementById("data_client").innerHTML=zero(d.getHours())+":"+zero(d.getMinutes())+":"+zero(d.getSeconds());
-    
-                        function actualizeazaElemData(id_div){
-                            var data_div=document.getElementById(id_div);
-                            if (data_div.innerHTML!="")
-                            {
-                                var timp=data_div.innerHTML.split(":")
-                                var dt=new Date(2000,1,15, timp[0],timp[1], timp[2] );//nu conteaza data (am pus valori random pentru an, luna si zi) ci timpul
-                            }
-                            else
-                                var dt=new Date();
-                            dt.setSeconds(dt.getSeconds()+1)
-                            data_div.innerHTML=zero(dt.getHours())+":"+zero(dt.getMinutes())+":"+zero(dt.getSeconds());
-                        }
-                        function actualizeazaData(){
-                            actualizeazaElemData("data_client");
-                            actualizeazaElemData("data_server");
-                        }
-                        actualizeazaData()
-                        setInterval(actualizeazaData,1000)
-                    </script>
+                    
         </section>
         <section id="news">
-          <h2>Anunturi</h2>
+          <h2>ANUNTURI</h2>
           <p>
             <strong>
               Fii cu ochii pe site-ul nostru pentru diferite oferte si reduceri!
@@ -249,7 +252,7 @@
           </video>
         </section>
         <section id="tabel">
-          <h2>Tabele</h2>
+          <h2>TABELE</h2>
           <div class="wrapper">
             <table>
               <thead>
@@ -337,12 +340,12 @@
           </div>
         </section>
         <section id="others" >
-          <h2>Sfaturi si Idei</h2>
+          <h2>SFATURI SI IDEI</h2>
           <p>
             Te intrebi cum sa iti alegi <b>marimea</b> potrivita la
             <b>incaltaminte</b>? Mai jos gasesti doua videoclipuri sugestive.
           </p>
-          <div style="margin-left:28%">
+          <center>
           <div class="video-iframe">
             <iframe
               name="ifr-video"
@@ -364,7 +367,7 @@
             >
             <br />
           </div>
-        </div>
+        </center>
         </section>
       </div>
 
@@ -373,7 +376,7 @@
      
       <div id="galerie">
       <section id="galerie-statica">
-        <h2 style="font-size:40px;">Galerie statica produse</h2>
+        <h2 style="font-size:40px;">GALERIE STATICA PRODUSE</h2>
         <div id="grid-galerie">
           <% for (let imag of locals.imagini){ %> <% if (anotimp ==
           imag.anotimp) { %>
@@ -392,7 +395,7 @@
       </section>
 
       <section id="sectiune-galerie-animata" ">
-        <h2 style="font-size:40px;">Galerie animata produse</h2>
+        <h2 style="font-size:40px;">GALERIE ANIMATA PRODUSE</h2>
         <center><div id="galerie-animata" class="galerie-a">
           <% for (let imag of locals.imagini){ %>
           <figure>

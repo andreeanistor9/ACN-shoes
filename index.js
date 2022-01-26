@@ -533,6 +533,7 @@ app.get(["/","/index","/home"], function(req,res){
           for(i=0;i<texteEvenimente.length-2;i++){
               evenimente.push({data: new Date(dataCurenta.getFullYear(), dataCurenta.getMonth(), Math.ceil(Math.random()*27) ), text:texteEvenimente[i]});
           }
+         
           primaZiLuna = new Date(dataCurenta.getFullYear(),  dataCurenta.getMonth(), 1);
           if(primaZiLuna.getDay() == 1){
               evenimente.push({data: new Date(dataCurenta.getFullYear(), dataCurenta.getMonth(), primaZiLuna.getDate()), text: texteEvenimente[3]});
