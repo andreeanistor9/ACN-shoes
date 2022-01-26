@@ -11,7 +11,7 @@ header {
 }
 body {
   --background-color: #f2f2f2;
-
+  --imag-body-backgr: url("../imagini/background-light.jpg");
   --nav-color: #0d0007;
   --product-text-color: #5a5a5a;
   --price-color: #141414;
@@ -27,6 +27,7 @@ body {
   --produs-fundal: #ffffff;
   --produs-shadow1: #b8b8b9;
   --produs-shadow2: #8b8a99;
+  --produs-shadow3: #1f1f20;
   --input-color: #ffffff;
   --button-text: white;
   --padding-intern: 4%;
@@ -42,7 +43,7 @@ body.dark {
   --footer-color: #161542;
   --height-menu: 3rem;
   --cl-marcare: rgb(123, 123, 158);
-  --border-color: #9e9d9d;
+  --border-color: #515175;
   --buton-iframe: #e8e5fa;
   --arrow-color: #5a5a5c;
   --button-color: #535388;
@@ -52,6 +53,7 @@ body.dark {
   --produs-fundal: #171255;
   --produs-shadow1: #cbc7f7;
   --produs-shadow2: #a09bce;
+  --produs-shadow3: #2b265e;
   --input-color: #cbc7f7;
   --padding-intern: 4%;
   --gradient-body: linear-gradient(
@@ -321,4 +323,52 @@ hr {
   border-left-color: var(--border-color);
   border-right-color: var(--border-color);
   height: 1px;
+}
+#banner {
+  display: block;
+  position: fixed;
+  padding: 0;
+  bottom: 10px;
+  left: 10px;
+  margin-left: 0;
+  width: 25%;
+  border: 6px solid grey;
+  padding: 2px;
+  font-size: 1rem;
+  color: var(--text-color);
+  animation: cookie 5s;
+  animation-fill-mode: forwards;
+  transform-origin: left bottom;
+}
+
+@keyframes cookie {
+  0% {
+    opacity: 0;
+    background-color: var(--nav-color);
+    transform: scale(0, 0);
+  }
+
+  100% {
+    opacity: 0.75;
+    background-color: var(--produs-shadow2);
+    transform: scale(1, 1);
+  }
+}
+#ok_cookies {
+  background-color: var(--button-color);
+  color: var(--button-text);
+  padding: 5px 8px;
+  text-align: center;
+  font-size: 13px;
+  margin: 2px;
+  cursor: pointer;
+  transition: all 0.5s linear;
+  text-transform: uppercase;
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+}
+@media screen and (max-width: 1200px) {
+  #banner {
+    animation: cookie 0s;
+  }
 }

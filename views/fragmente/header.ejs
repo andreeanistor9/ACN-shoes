@@ -11,6 +11,13 @@
           <span class="fas fa-solid fa-house"></span>
           <span>ACASA</span>
         </a>
+        <ul>
+          <li>
+            <a href="#despre">DESPRE NOI</a>
+          </li>
+          <li><a href="#galerie">GALERIE</a></li>
+          <li><a href="#site_server">DETALII</a></li>
+        </ul>
       </li>
       <% if (!locals.utilizator) { %>
       <li><a href="/inregistrare">INREGISTRARE</a></li>
@@ -47,13 +54,11 @@
           </li>
         </ul>
       </li>
-      <li>
-        <a href="/despre">DESPRE NOI</a>
-      </li>
-      <li>
+
+      <!-- <li>
         <a href="/contact">CONTACT</a>
-      </li>
-      <li><a href="/detalii">DETALII</a></li>
+      </li> -->
+
       <% if (locals.utilizator) { %>
       <li><a href="/profil"><%- locals.utilizator.username %></a></li>
       <% } %>

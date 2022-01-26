@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta
+        name="keywords"
+        content=" ghete, incaltaminte, pantofi, sport, slapi, sandale, marime, model, ACN shoes"
+      />
+      <meta
+        name="description"
+        content="Din 2021 ACN SHOES promite sa ofere incaltaminte calitativa. 
+        La noi gasesti pantofi sport, ghete, slapi, sandale pentru toate categoriile de varsta si pentru toate gusturile "
+      />
+  
+      <title>ACN Shoes</title>
+      <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+         
+          <%- include("../fragmente/head") %>     
+          <script type="text/javascript" src=/resurse/js/produse.js></script>
+      </head>
+
+  <body>
+    <%- include("../fragmente/header.ejs") %>
+    <div class = "filtre">
+        <form action="javascript:void(0);">
+          
+            <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="700"> <span id="infoRange">(0)</span></label>
+           
+          
+        <p class="butoane">
+            <button type="submit" id="filtrare">Filtreaza</button> 
+          
+            <button id="resetare">Reseteaza</button><br/>
+     
+            <button type="submit" id="suma">Suma preturilor</button>
+        </p>
+    </form>
+    <main>
+    </div>
+        <section id="reviste">
+            <h2 style="text-align: center;">Reviste</h2>
+            <div class="grid-reviste">
+               
+                <% for( let rev of locals.reviste) { %>
+                    <div class="revista" >
+                        <div id="titlu"><h3 class="nume"><a href="/revista/<%-rev.id %>" ><span class="val-nume"><%- rev.titlu%></span></a></h3></div>
+                        <p id="pret"><%- rev.pret %> LEI</p>
+                    </div>
+                <% }%>
+           
+            </div>
+        </section>
+    </main>
+    <%- include("../fragmente/footer.ejs") %>
+  </body>
+  <style>
+  .grid-reviste {
+    border-style: solid;
+  border-color: rgb(158, 36, 36);
+  font-weight: bold;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+ 
+  }
+.grid-reviste>div:nth-child(6n+1),
+.grid-reviste>div:nth-child(6n+2),
+.grid-reviste>div:nth-child(6n+3){
+  background-color: aquamarine;
+}
+
+#pret{
+    font-weight:normal;
+    transition: all 1s linear;
+}
+#pret:hover{
+    background-color: red ;
+    font-weight: bold;
+}
+
+</style>
+</html>

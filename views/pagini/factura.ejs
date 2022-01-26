@@ -30,6 +30,7 @@
           <th>Culoare</th>
           <th>Marime</th>
           <th>QR</th>
+          <th>Imagine</th>
         </tr>
       </thead>
 
@@ -40,7 +41,7 @@
           <td><%- prod.nume %></td>
           <td><%- prod.pret %></td>
           <td><%- prod.culoare %></td>
-          <td><%- prod.marime %></td>
+          <td><%- prod.marime %> LEI</td>
           <td>
             <img
               src="<%- locals.protocol%><%- locals.domeniu %>/resurse/imagini/qrcode/<%-  prod.id %>.png"
@@ -52,13 +53,21 @@
             />
           </td>
         </tr>
+
         <% } %>
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3">Total: <%- suma %></td>
+          <td colspan="3">Total: <%- suma %> LEI</td>
         </tr>
       </tfoot>
     </table>
+    <div style="text-align: center">
+      <br />
+      QR-ul dumneavoastra:
+      <img
+        src="<%- locals.protocol%><%- locals.domeniu %>/resurse/qrcode/<%-  locals.utilizator.id %>.png"
+      />
+    </div>
   </body>
 </html>

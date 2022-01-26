@@ -1,6 +1,6 @@
 window.onload = function () {
   var btn = document.getElementById("filtrare");
-
+ 
   btn.onclick = function () {
     var articole = document.getElementsByClassName("produs");
     for (let art of articole) {
@@ -214,43 +214,103 @@ window.onload = function () {
       art.style.display = "block";
     }
   };
-  // adaugare in cos
-  ids_produse_init = localStorage.getItem("produse_selectate");
-  if (ids_produse_init) 
-    ids_produse_init = ids_produse_init.split(",");
-  //obtin vectorul de id-uri ale produselor selectate  (din cosul virtual)
-  else 
-    ids_produse_init = [];
 
+  function isItemInArray(array, item, cautaTot) {
+    /// cautaTot= True (cauta si dupa id si dupa cantitate) cautaTot= False (cauta dupa id )
+
+    for (var i = 0; i < array.length; i++) {
+      if (cautaTot) {
+        // This if statement depends on the format of your array
+        if (array[i][0] == item[0] && array[i][1] == item[1]) {
+          return i; // Found it
+        }
+      } else if (array[i][0] == item[0]) {
+        return i; // Found it
+      }
+    }
+
+    return -1;
+  }
+
+  function getIdsProduse() {
+    let ids_produse = [];
+    aux_produse = localStorage.getItem("produse_selectate");
+    if (aux_produse) {
+      // Presupunem ca in localStorage ar trebui salvate in modul urmator "1:5,2:3,3:1,4:1" // 5 produse de tipul 1, 3 produse de tipul 2, 1 produs de tipul 3...
+      aux_produse = aux_produse.split(","); // ['1:5','2:3',..]
+      for (let p of aux_produse) {
+        let per = p.split(":");
+        ids_produse.push([parseInt(per[0]), parseInt(per[1])]);
+      }
+    } else ids_produse = [];
+    return ids_produse;
+  }
+  function StorageIdsProduse(ids_produse) {
+    v_sir_prod = [];
+    for (let prod of ids_produse) {
+      // prod o lista cu id si cantitate
+      let sir_prod = prod[0] + ":" + prod[1];
+      v_sir_prod.push(sir_prod); //v_sir_prod va fi de forma ['1:5','2:3',..]
+    }
+    localStorage.setItem("produse_selectate", v_sir_prod.join(","));
+  }
+  //////////////////////////
+
+  ids_produse_init = getIdsProduse();
   var checkboxuri_cos = document.getElementsByClassName("select-cos");
-  for (let ch of checkboxuri_cos) {
-    if (ids_produse_init.indexOf(ch.value) != -1) ch.checked = true;
-    ch.onchange = function () {
-      ids_produse = localStorage.getItem("produse_selectate");
-      if (ids_produse) ids_produse = ids_produse.split(",");
-      else ids_produse = [];
+  var cantitate_cos = document.getElementsByClassName("cantitate_cos");
+  for (let ch = 0; ch < checkboxuri_cos.length; ch++) {
+    const s = [];
+    s.push(parseInt(checkboxuri_cos[ch].value));
+    s.push(parseInt(cantitate_cos[ch].value));
+    poz = isItemInArray(ids_produse_init, s, false);
+    if (poz != -1) {
+      checkboxuri_cos[ch].checked = true;
+      cantitate_cos[ch].value = ids_produse_init[poz][1];
+    }
+    checkboxuri_cos[ch].onchange = function () {
+      ids_produse = getIdsProduse();
       console.log("Selectie veche:", ids_produse);
       //ids_produse.map(function(elem){return parseInt(elem)});
       //console.log(ids_produse);
-      if (ch.checked) {
-        ids_produse.push(ch.value); //adaug elementele noi, selectate (bifate)
+      const s = [];
+      s.push(parseInt(checkboxuri_cos[ch].value));
+      s.push(parseInt(cantitate_cos[ch].value));
+      if (checkboxuri_cos[ch].checked) {
+        ids_produse.push(s); //adaug elementele noi, selectate (bifate)
       } else {
-        ids_produse.splice(ids_produse.indexOf(ch.value), 1); //sterg elemente debifate
+        ids_produse.splice(isItemInArray(ids_produse, s, false), 1); //sterg elemente debifate
       }
       console.log("Selectie noua:", ids_produse);
-      localStorage.setItem("produse_selectate", ids_produse.join(","));
+      StorageIdsProduse(ids_produse);
+    };
+    cantitate_cos[ch].onchange = cantitate_cos[ch].onkeydown = function () {
+      if (checkboxuri_cos[ch].checked) {
+        let ids_produse = getIdsProduse();
+        console.log("Selectie veche:", ids_produse);
+        const s = [];
+        s.push(parseInt(checkboxuri_cos[ch].value));
+        s.push(parseInt(cantitate_cos[ch].value));
+        poz = isItemInArray(ids_produse, s, false);
+        console.log(s, "            ", poz);
+        if (poz != -1) {
+          ids_produse[poz][1] = parseInt(cantitate_cos[ch].value);
+          console.log("Selectie noua:", ids_produse);
+          StorageIdsProduse(ids_produse);
+        }
+      }
     };
   }
 };
-function adauga(id){
+
+function adauga(id) {
   var a = 1;
   var textBox = document.getElementById(id);
   textBox.value++;
-  
-}    
-function scade(id){
-var textBox = document.getElementById(id);
-  textBox.value--;
+}
+function scade(id) {
+  var textBox = document.getElementById(id);
+  if (textBox.value > 0) textBox.value--;
 }
 
 window.onkeydown = function () {

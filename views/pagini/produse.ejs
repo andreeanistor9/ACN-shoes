@@ -80,6 +80,7 @@
     </div>
     <p class="butoane">
         <button type="submit" id="filtrare">Filtreaza</button> 
+      
         <button id="resetare">Reseteaza</button><br/>
         <button type="submit" id="sortCrescNume">Sorteaza crescator dupa nume si pret</button>
         <button type="submit" id="sortDescrescNume">Sorteaza descrescator dupa nume si pret</button>
@@ -132,10 +133,14 @@
                             Selectează:<br/>
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
                         </label>
-                        <label class="cantitate" >
-                            <button type="button" onclick="adauga('number-<%-prod.id%>')">+</button>
-                             <input type="text" id="number-<%-prod.id%>" value="0">
-                             <button type="button" onclick="scade('number-<%-prod.id%>')">-</button>
+                    
+                            <button onclick="scade('number-<%-prod.id%>')">-</button>
+                             <input class="cantitate_cos"  type="text" id="number-<%-prod.id%>" value="0">
+                             <button onclick="adauga('number-<%-prod.id%>')">+</button>
+                        
+                        <label>
+                            <button  id="sterge-produs">STERGE</button>
+                             
                         </label>
                     </article>
                 <% }%>

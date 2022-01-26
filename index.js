@@ -97,7 +97,17 @@ client.query("select id from produse", function(err, rez){
         QRCode.toFile(cale_qr+"/"+prod.id+".png",cale_prod);
     }
 });
-
+cale_qr1="./resurse/qrcode";
+if (fs.existsSync(cale_qr1))
+  fs.rmSync(cale_qr1, {force:true, recursive:true});
+fs.mkdirSync(cale_qr1);
+client.query("select id from utilizatori", function(err, rez){
+    for(let user of rez.rows){
+        let cale_user=protocol+numeDomeniu+"/utilizator/"+user.id;
+        //console.log(cale_prod);
+        QRCode.toFile(cale_qr1+"/"+user.id+".png",cale_user);
+    }
+});
 var ipuri_active={};
 
 
@@ -161,7 +171,6 @@ app.use(function(req,res,next){
     }
     next();   
 }); 
-
 function stergeAccesariVechi(){
     let comanda= `delete from accesari where now() - data_accesare > interval '10 minutes'`;
     //console.log(comanda);
@@ -235,6 +244,52 @@ app.get("/produs/:id", function(req, res){
         }
     })
 })
+
+// examen --pb
+app.get("/reviste", function (req, res) {
+    console.log(req.query);
+    var conditie = "";
+    if (req.query.tip) conditie += ` and aparitie='${req.query.tip}'`;
+    client.query(
+      `select * from reviste where 1=1 ${conditie}`,
+      function (err, rez) {
+        console.log(err);
+        if (!err) {
+          //console.log(rez);
+          client.query(
+            "select * from reviste",
+            function (errCateg, rezCateg) {
+              v_optiuni = [];
+              for (let elem of rezCateg.rows) {
+                v_optiuni.push(elem);
+              }
+              console.log(v_optiuni);
+              res.render("pagini/reviste", {
+                reviste: rez.rows,
+                optiuni: v_optiuni,
+              });
+            }
+          );
+        }
+        else{//TO DO 
+          console.log(err);
+      }
+      }
+    );
+  });
+  
+  app.get("/revista/:id", function(req, res){
+      console.log(req.params)
+      client.query(`select * from reviste where id=${req.params.id}`, function(err,rez){
+          if (!err){
+              console.log(rez);
+              res.render("pagini/revista",{rev:rez.rows[0]});
+          }
+          else{//TO DO curs
+          }
+      })
+  })
+  //-------examen
 
 async function trimitefactura(username, email,numefis){
 	var transp= nodemailer.createTransport({
@@ -864,63 +919,7 @@ app.post("/sterge_utiliz",function(req, res){
 
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////
-//////////////// Contact
-caleXMLMesaje="resurse/xml/contact.xml";
-headerXML=`<?xml version="1.0" encoding="utf-8"?>`;
-function creeazaXMlContactDacaNuExista(){
-    if (!fs.existsSync(caleXMLMesaje)){
-        let initXML={
-            "declaration":{
-                "attributes":{
-                    "version": "1.0",
-                    "encoding": "utf-8"
-                }
-            },
-            "elements": [
-                {
-                    "type": "element",
-                    "name":"contact",
-                    "elements": [
-                        {
-                            "type": "element",
-                            "name":"mesaje",
-                            "elements":[]                            
-                        }
-                    ]
-                }
-            ]
-        }
-        let sirXml=xmljs.js2xml(initXML,{compact:false, spaces:4});
-        console.log(sirXml);
-        fs.writeFileSync(caleXMLMesaje,sirXml);
-        return false; //l-a creat
-    }
-    return true; //nu l-a creat acum
-}
 
-
-function parseazaMesaje(){
-    let existaInainte=creeazaXMlContactDacaNuExista();
-    let mesajeXml=[];
-    let obJson;
-    if (existaInainte){
-        let sirXML=fs.readFileSync(caleXMLMesaje, 'utf8');
-        obJson=xmljs.xml2js(sirXML,{compact:false, spaces:4});
-        
-
-        let elementMesaje=obJson.elements[0].elements.find(function(el){
-                return el.name=="mesaje"
-            });
-        let vectElementeMesaj=elementMesaje.elements?elementMesaje.elements:[];
-        console.log("Mesaje: ",obJson.elements[0].elements.find(function(el){
-            return el.name=="mesaje"
-        }))
-        let mesajeXml=vectElementeMesaj.filter(function(el){return el.name=="mesaj"});
-        return [obJson, elementMesaje,mesajeXml];
-    }
-    return [obJson,[],[]];
-}
 async function trimiteMailStergere(nume, prenume, email){
 	var transp= nodemailer.createTransport({
 		service: "gmail",
@@ -935,7 +934,7 @@ async function trimiteMailStergere(nume, prenume, email){
 	});
 	//genereaza html
 	await transp.sendMail({
-		from:"test.tweb.node@gmail.com",
+		from:"andreeann2021@gmail.com",
 		to:email,
 		subject:"Mesaj stergere",
 		text:"Nu ne mai plăcea cum arăți, [prenume nume], așa că ți-am șters poza. Sorry! ",
@@ -944,38 +943,6 @@ async function trimiteMailStergere(nume, prenume, email){
 	console.log("trimis mail");
 }
 
-app.get("/contact", function(req, res){
-    let obJson, elementMesaje, mesajeXml;
-    [obJson, elementMesaje, mesajeXml] =parseazaMesaje();
-
-    res.render("pagini/contact",{ utilizator:req.session.utilizator, mesaje:mesajeXml})
-});
-
-app.post("/contact", function(req, res){
-    let obJson, elementMesaje, mesajeXml;
-    [obJson, elementMesaje, mesajeXml] =parseazaMesaje();
-        
-    let u= req.session.utilizator?req.session.utilizator.username:"anonim";
-    let mesajNou={
-        type:"element", 
-        name:"mesaj", 
-        attributes:{
-            username:u, 
-            data:new Date()
-        },
-        elements:[{type:"text", "text":req.body.mesaj}]
-    };
-    if(elementMesaje.elements)
-        elementMesaje.elements.push(mesajNou);
-    else 
-        elementMesaje.elements=[mesajNou];
-    console.log(elementMesaje.elements);
-    let sirXml=xmljs.js2xml(obJson,{compact:false, spaces:4});
-    console.log("XML: ",sirXml);
-    fs.writeFileSync("resurse/xml/contact.xml",sirXml);
-    
-    res.render("pagini/contact",{ utilizator:req.session.utilizator, mesaje:elementMesaje.elements})
-});
 
 app.post("/sterge_poza", function(req, res) {
     client.query("SELECT nume, prenume, email, fotografie FROM utilizatori WHERE id=" + req.body.userId, function(err, rez) {

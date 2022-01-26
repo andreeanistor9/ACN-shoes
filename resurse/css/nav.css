@@ -69,7 +69,11 @@ nav ul.meniu > li:hover > ul > li::before {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to right, white, black);
+  background-image: linear-gradient(
+    to right,
+    var(--produs-shadow1),
+    var(--produs-shadow3)
+  );
   transition: all 1s linear;
 }
 nav ul.meniu > li:hover > ul > li:hover::before {
@@ -86,7 +90,11 @@ nav ul.meniu > li:hover > ul > li::after {
   position: absolute;
   top: 0;
   right: 0;
-  background-image: linear-gradient(to left, white, black);
+  background-image: linear-gradient(
+    to left,
+    var(--produs-shadow1),
+    var(--produs-shadow3)
+  );
   transition: all 1s linear;
 }
 #hamburger {

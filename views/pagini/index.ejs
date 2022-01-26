@@ -14,7 +14,7 @@
       content="Din 2021 ACN SHOES promite sa ofere incaltaminte calitativa. 
       La noi gasesti pantofi sport, ghete, slapi, sandale pentru toate categoriile de varsta si pentru toate gusturile "
     />
-
+   
     <title>ACN Shoes</title>
     <%- include("../fragmente/head.ejs") %>
     <link
@@ -92,7 +92,6 @@
                   <%= locals.utiliz_online[utiliz_online.length-1].username %>(<%- locals.utiliz_online[utiliz_online.length-1].nume %>)
               <% }  %>
           </p>
-          
         </section>
 
         <section id="user_stats">
@@ -105,15 +104,25 @@
             <p>Culoare chat: <%- locals.utilizator.culoare_chat %></p>
           <%} %>
         </section>
-        <section id="site_server">
-          <h2>Site Server Data</h2>
-          <p>
-            The standard Lorem Ipsum passage, used since the 1500s "Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.
-          </p>
+        <section id="site_server" style="font-size:15px;">
+            <h3>DETALII</h3>
+            <h4>INTREBARI FRECVENTE:</h4>
+            <p>
+              1. In cat timp se livreaza comenzile? <br />
+              Comenzile se livreaza in general in 3-5 zile lucratoare. Pot aparea
+              intarzieri in preajma sarbatorilor sau a situatiilor speciale. <br />
+              2. Cum se poate efectua plata? <br />
+              Plata se poate efectua atat online din pagina comenzii, cat si cash la
+              livrare. <br />
+              3. In cat timp poate fi disponibil din nou un produs care nu este pe
+              stoc in acest moment? <br />
+              De obicei, produsele indisponibile momentan vor reveni in magazin in
+              2-3 saptamani sau deloc daca sunt editie limitata. <br />
+            </p>
+            <strong>
+              Parerea ta conteaza! Lasa-ne feedback-ul tau
+              <a href="feedback.html">aici</a>
+            </strong>
         </section>
         <% if(locals.utilizator && locals.utilizator.problema_vedere) { %>
         <section id="events"style = "font-size: 2em;">
@@ -293,14 +302,47 @@
               </caption>
             </table>
           </div>
+          <div id="despre" >
+            <br>
+            <br>
+            <h3>DESPRE NOI</h3>
+            <br />
+            <p>
+              Din 2021 site-ul
+              <abbr title="Andreea-Cristina Nistor">ACN</abbr> SHOES vine cu modele
+              unice de <b>incaltaminte</b> la preturi de nerefuzat, pe toate
+              <b>marimile</b>.
+            </p>
+            <p>
+              ACN SHOES este destinatia potrivita pentru iubitorii de
+              <b>pantofi sport</b>, <b>ghete</b>, <b>slapi</b> si <b>sandale</b> ce
+              pune in prim plan preferintele tuturor consumatorilor. Incercam sa
+              oferim produse pe placul tuturor si asiguram o calitate inalta a
+              <b>incaltamintei</b>.
+            </p>
+            <p>
+              Stim ca <b>incaltamintea</b> este o parte foarte importanta pentru
+              unii oameni. Ea poate completa de minune stilul sau poate deveni
+              elementul cel mai important. Pe langa comoditatea pantofilor nostri,
+              asiguram si diversitatea modelelor pentru a satisface cat mai multe
+              preferinte. Asa cum spune si Christian Louboutin,
+              <q
+                lang="ro"
+                cite="https://www.ele.ro/fashion/stiri-fashion/citate-celebre-din-istoria-modei-vezi-maximele-care-au-inspirat-o-lume-nteaga--32108"
+              >
+                <b>Pantofii</b> iti transforma limbajul corpului si atitudinea. Te
+                ridica fizic si emotional.
+              </q>
+            </p>
+          </div>
         </section>
-        <section id="others">
+        <section id="others" >
           <h2>Sfaturi si Idei</h2>
           <p>
             Te intrebi cum sa iti alegi <b>marimea</b> potrivita la
             <b>incaltaminte</b>? Mai jos gasesti doua videoclipuri sugestive.
           </p>
-
+          <div style="margin-left:28%">
           <div class="video-iframe">
             <iframe
               name="ifr-video"
@@ -322,40 +364,16 @@
             >
             <br />
           </div>
+        </div>
         </section>
       </div>
 
-      <section id="contact">
-        <!-- <h3>Date de contact</h3>
-
-        <p>Telefon: 0771779888</p>
-        <p>Email: ACNshoes@gmail.com</p>
-        <p>Suport clienti: Luni-Vineri: 9:00-19:00</p> -->
-      </section>
+      
       <!-- subetapa 12 -->
-      <section id="detalii">
-        <!-- <h3>DETALII</h3>
-        <h4>INTREBARI FRECVENTE:</h4>
-        <p>
-          1. In cat timp se livreaza comenzile? <br />
-          Comenzile se livreaza in general in 3-5 zile lucratoare. Pot aparea
-          intarzieri in preajma sarbatorilor sau a situatiilor speciale. <br />
-          2. Cum se poate efectua plata? <br />
-          Plata se poate efectua atat online din pagina comenzii, cat si cash la
-          livrare. <br />
-          3. In cat timp poate fi disponibil din nou un produs care nu este pe
-          stoc in acest moment? <br />
-          De obicei, produsele indisponibile momentan vor reveni in magazin in
-          2-3 saptamani sau deloc daca sunt editie limitata. <br />
-        </p>
-        <strong>
-          Parerea ta conteaza! Lasa-ne feedback-ul tau
-          <a href="feedback.html">aici</a>
-        </strong> -->
-      </section>
-
+     
+      <div id="galerie">
       <section id="galerie-statica">
-        <h2>Galerie</h2>
+        <h2 style="font-size:40px;">Galerie statica produse</h2>
         <div id="grid-galerie">
           <% for (let imag of locals.imagini){ %> <% if (anotimp ==
           imag.anotimp) { %>
@@ -373,9 +391,9 @@
         </div>
       </section>
 
-      <section id="sectiune-galerie-animata">
-        <h2>Galerie</h2>
-        <div id="galerie-animata" class="galerie-a">
+      <section id="sectiune-galerie-animata" ">
+        <h2 style="font-size:40px;">Galerie animata produse</h2>
+        <center><div id="galerie-animata" class="galerie-a">
           <% for (let imag of locals.imagini){ %>
           <figure>
             <picture>
@@ -387,7 +405,9 @@
           </figure>
           <% } %>
         </div>
+      </center>
       </section>
+    </div>
     </main>
     <%- include("../fragmente/footer.ejs") %>
   </body>
