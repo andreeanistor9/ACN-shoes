@@ -41,6 +41,6 @@
   "author": "Andreea Nistor",
   "license": "ISC",
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   }
 }

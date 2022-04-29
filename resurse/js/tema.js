@@ -9,7 +9,6 @@ window.addEventListener("DOMContentLoaded", function(){
         if(tema=="dark")
             {document.body.classList.add("dark");
             document.getElementById("temaspan").className = "fas fa-solid fa-sun"}
-
     }
     btn=document.getElementById("schimba_tema");
     if(btn){

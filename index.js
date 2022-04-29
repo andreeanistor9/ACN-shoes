@@ -118,8 +118,8 @@ app.use(function(req,res,next){
     timp_curent=new Date();
     if(ip_gasit){
     
-        if( (timp_curent-ip_gasit.data)< 5*1000) {//diferenta e in milisecunde; verific daca ultima accesare a fost pana in 5 secunde
-            if (ip_gasit.nr>10){//mai mult de 10 cereri 
+        if( (timp_curent-ip_gasit.data)< 10*1000) {//diferenta e in milisecunde; verific daca ultima accesare a fost pana in 5 secunde
+            if (ip_gasit.nr>5){//mai mult de 10 cereri 
                 res.send("<h1>Prea multe cereri intr-un interval scurt. Ia te rog sa fii cuminte, da?!</h1>");
                 ip_gasit.data=timp_curent
                 return;
