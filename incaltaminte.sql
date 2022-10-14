@@ -1,1 +1,0 @@
-CREATE TYPE tipuri_produse AS ENUM('femei', 'barbati', 'copii')
